@@ -1,0 +1,1229 @@
+---
+from: markdown+emoji
+execute:
+  keep-md: true
+format: 
+  letterbox-revealjs:
+    css: custom.css
+    progress: false
+    menu: false
+    width: 1280
+    height: 720
+    include-after-body: animate.html
+callout-appearance: simple
+bibliography: citations.bib
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+library(ggplot2)
+library(visNetwork)
+library(tidygraph)
+options(width = 75)
+
+visnetwork_hierarchy <- function(data, ...) {
+  nodes <- as_tibble(mutate(activate(data, "nodes"), id = row_number(), level = node_distance_from(node_is_root())))
+  edges <- as_tibble(activate(data, "edges"))
+  graph <- visNetwork(nodes, edges, ...) |> 
+    visHierarchicalLayout(direction = "UD", shakeTowards = "leaves") |> 
+    visOptions(
+      highlightNearest = list(enabled = TRUE, degree = list(from = 50000, to = 0), hover = FALSE, algorithm = "hierarchical"), 
+      collapse = list(enabled = TRUE, fit = FALSE, resetHighlight = TRUE, keepCoord = TRUE,
+                      clusterOptions = list(fixed = TRUE, physics = TRUE))
+    ) |> 
+    visEdges(scaling = list(label = list(enabled = FALSE)), arrows = "to") |> 
+    visNodes(font = list(size = 16))
+  
+  graph$x$tree <- list(updateShape = TRUE, shapeVar = "dot", shapeY = "square")
+  graph
+}
+visnetwork_graph <- function(data, layout = "layout_nicely", ...) {
+  nodes <- as_tibble(mutate(activate(data, "nodes"), id = row_number()))
+  edges <- as_tibble(activate(data, "edges"))
+  graph <- visNetwork(nodes, edges, ...) |> 
+    visIgraphLayout(layout = layout, randomSeed = 123091238) |> 
+    visOptions(
+      highlightNearest = list(enabled = TRUE, degree = list(from = 50000, to = 0), hover = FALSE)
+    ) |> 
+    visEdges(width = 3, scaling = list(label = list(enabled = FALSE)), arrows = "to") |> 
+    visNodes(size = 20)
+  
+  graph$x$tree <- list(updateShape = TRUE, shapeVar = "dot", shapeY = "square")
+  graph
+}
+```
+
+## {}
+
+::: columns
+::: {.column width="37.5%"}
+:::
+::: {.column width="60%"}
+
+::: {.sticker-float}
+![](media/isf2023.png)
+:::
+
+::: {.title data-id="title"}
+Reconciliation of structured time series forecasts with graphs
+:::
+
+::: {.dateplace}
+27th June 2023 @ ISF 2023
+:::
+
+Mitchell O'Hara-Wild, Monash University
+
+::: {.smaller}
+Supervised by Rob Hyndman and George Athanasopolous
+:::
+
+::: {.callout-link}
+
+## Useful links
+
+![](resources/forum.svg){.icon} [social.mitchelloharawild.com](https://social.mitchelloharawild.com/)
+
+![](resources/projector-screen-outline.svg){.icon} [slides.mitchelloharawild.com/reconciling-graphs](https://slides.mitchelloharawild.com/reconciling-graphs)
+
+![](resources/github.svg){.icon} [mitchelloharawild/talk-reconciling-graphs](https://github.com/mitchelloharawild/talk-reconciling-graphs)
+
+:::
+
+:::
+:::
+
+![](backgrounds/emma-gossett-B645igbiKCw-unsplash.jpg){.image-left}
+
+## {}
+
+::: columns
+::: {.column width="37.5%"}
+:::
+::: {.column width="60%"}
+
+::: {.sticker-float}
+![](media/isf2023.png)
+:::
+
+::: {.title data-id="title"}
+Reconciliation of **structured time series forecasts with** graphs
+:::
+
+::: {.dateplace}
+27th June 2023 @ ISF 2023
+:::
+
+Mitchell O'Hara-Wild, Monash University
+
+::: {.smaller}
+Supervised by Rob Hyndman and George Athanasopolous
+:::
+
+::: {.callout-link}
+
+## Useful links
+
+![](resources/forum.svg){.icon} [social.mitchelloharawild.com](https://social.mitchelloharawild.com/)
+
+![](resources/projector-screen-outline.svg){.icon} [slides.mitchelloharawild.com/reconciling-graphs](https://slides.mitchelloharawild.com/reconciling-graphs)
+
+![](resources/github.svg){.icon} [mitchelloharawild/talk-reconciling-graphs](https://github.com/mitchelloharawild/talk-reconciling-graphs)
+
+:::
+
+:::
+:::
+
+![](backgrounds/emma-gossett-B645igbiKCw-unsplash.jpg){.image-left}
+
+## The basics of reconciliation
+
+::: {.sticker-float}
+![](media/isf2023.png)
+:::
+
+::: columns
+::: {.column width="60%"}
+
+::: {.callout-question}
+
+## How many forecasters will attend ISF 2024 and beyond?
+
+::: {.fragment .fade-in}
+Forecast $\text{Attendees}_{T+h|T}$ with a suitable model and data.
+:::
+
+:::
+
+::: {.fragment .fade-in}
+::: {.callout-question}
+## How many attendees are from academia and industry?
+
+::: {.fragment .fade-in}
+Forecast $\text{Academic}_{T+h|T}$ and $\text{Industry}_{T+h|T}$ with
+
+suitable models and data.
+:::
+:::
+:::
+
+::: {.fragment .fade-in}
+::: {.callout-important}
+## Something doesn't add up here...
+
+Independently produced forecasts are [**incoherent**]{.danger},
+
+$\text{Attendees}_{T+h|T} \neq \text{Academic}_{T+h|T} + \text{Industry}_{T+h|T}$.
+:::
+:::
+
+:::
+:::
+
+![](backgrounds/darden.jpg){.image-right}
+
+## The basics of reconciliation
+
+::: {.sticker-float}
+![](media/isf2023.png)
+:::
+
+::: columns
+::: {.column width="60%"}
+
+::: {.callout-tip}
+
+## Impose constraints to ensure coherency
+
+Adjust the forecasts to satisfy the constraint
+
+$\text{Attendees}_{T+h|T} = \text{Academic}_{T+h|T} + \text{Industry}_{T+h|T}$.
+
+::: {.fragment .fade-in}
+<br>
+Often we have many constraints, so matrices are used:
+
+$$
+\begin{bmatrix}
+  \text{Attendees}_{t} \\
+  \text{Academic}_{t} \\
+  \text{Industry}_{t} \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+  1 & 1 \\
+  1 & 0\\
+  0 & 1 \\
+\end{bmatrix}
+\begin{bmatrix}
+  \text{Academic}_{t} \\
+  \text{Industry}_{t} \\
+\end{bmatrix}
+$$
+
+or compactly, $\mathbf{y}_t = \mathbf{S} \mathbf{b}_t$
+
+:::
+:::
+
+::: {.fragment .fade-in}
+::: {.callout-paper}
+"Summing" or "structural" matrices are described in @hyndman2011.
+:::
+:::
+
+:::
+:::
+
+![](backgrounds/darden.jpg){.image-right}
+
+
+## The basics of reconciliation
+
+::: {.sticker-float}
+![](media/isf2023.png)
+:::
+
+::: columns
+::: {.column width="60%"}
+
+::: {.callout-tip}
+
+## Impose constraints to ensure coherency
+
+These matrices are not easy to read, so we use graphs.
+
+```{r}
+#| echo: false
+#| output: hide
+tidygraph::tbl_graph(
+  nodes = tibble(label = c("Attendees", "Academic", "Industry")),
+  edges = tibble(from = c(1, 1), to = c(2, 3))
+) |>
+  visnetwork_hierarchy(width = 600, height = 300)
+```
+
+The weight of the edges corresponds to the $\mathbf{S}$ matrix.
+
+:::
+:::
+:::
+
+![](backgrounds/darden.jpg){.image-right}
+
+
+## The basics of reconciliation
+
+::: {.sticker-float}
+![](media/isf2023.png)
+:::
+
+::: columns
+::: {.column width="60%"}
+
+::: {.callout-note}
+
+## Reconciling forecasts
+
+The L2 optimal way to adjust the forecasts to be coherent is MinT [@Wickramasuriya2018OptimalFR]:
+
+$$
+  \tilde{\mathbf{y}}_{T+h|T}=\mathbf{S}(\mathbf{S}'\mathbf{W}_{h}^{-1}\mathbf{S})^{-1}\mathbf{S}'\mathbf{W}_{h}^{-1}\hat{\mathbf{y}}_{T+h|T}.
+$$
+
+where $\mathbf{W}_{h}=\text{Var}[(\mathbf{y}_{t+h|t}-\hat{\mathbf{y}}_{t+h|t})]$
+
+::: {.fragment .fade-in}
+<br>
+There are many other reconciliation techniques and formulations that also work well.
+:::
+:::
+:::
+:::
+
+![](backgrounds/darden.jpg){.image-right}
+
+## The basics of reconciliation
+
+::: {.sticker-float}
+![](media/isf2023.png)
+:::
+
+::: columns
+::: {.column width="60%"}
+
+::: {.callout-tip}
+
+## Reconciling forecasts
+
+Not only are coherent forecasts **more reasonable**, they are **more accurate**!
+
+<br>
+
+::: {.fragment .fade-in}
+
+The large matrices can become complicated quickly when considering large collections of coherent time series.
+
+<br>
+
+Let's instead consider **graphs**. 
+:::
+:::
+:::
+:::
+
+![](backgrounds/darden.jpg){.image-right}
+
+
+
+## {}
+
+::: columns
+::: {.column width="40%"}
+:::
+::: {.column width="60%"}
+### Hierarchical coherence
+
+::: {.callout-note}
+## Each aggregate has a single constraint
+
+The basic constraint shown before is '[**hierarchical**]{.term}'
+
+```{r}
+#| echo: false
+#| output: hide
+tidygraph::tbl_graph(
+  nodes = tibble(label = c("Attendees", "Academic", "Industry")),
+  edges = tibble(from = c(1, 1), to = c(2, 3))
+) |>
+  visnetwork_hierarchy(width = 600, height = 300)
+```
+:::
+
+:::
+:::
+
+![](backgrounds/PXL_20230626_200731948.jpg){.image-left}
+
+
+## {}
+
+::: columns
+::: {.column width="40%"}
+:::
+::: {.column width="60%"}
+### Hierarchical coherence
+
+::: {.callout-note}
+## Each aggregate has a single constraint
+
+[**Hierarchical**]{.term} series often have multiple layers
+
+```{r}
+#| echo: false
+#| output: hide
+tidygraph::tbl_graph(
+  nodes = tibble(label = c("Attendees", "Academic", "Industry", "Students", "Staff")),
+  edges = tibble(from = c(1, 1, 2, 2), to = c(2, 3, 4, 5))
+) |>
+  visnetwork_hierarchy(width = 600, height = 400)
+```
+
+::: {.fragment .fade-in}
+In graph terms, this is known as a [**polytree**]{.term}.
+:::
+:::
+
+:::
+:::
+
+![](backgrounds/PXL_20230626_200731948.jpg){.image-left}
+
+
+## {}
+
+::: columns
+::: {.column width="60%"}
+### Grouped coherence
+
+There are many ways to disaggregate a series.
+
+Consider where attendees have travelled from, **domestic** or **international**?
+
+::: {.fragment .fade-in}
+```{r}
+tidygraph::tbl_graph(
+  nodes = tibble(label = c("Attendees", "Domestic", "International")),
+  edges = tibble(from = c(1, 1), to = c(2, 3))
+) |>
+  visnetwork_hierarchy(width = 600, height = 300)
+```
+:::
+
+
+::: {.fragment .fade-in}
+::: {.callout-question}
+## What about attendee origin in academia/industry?
+
+Let's consider the combinations.
+:::
+:::
+
+
+
+:::
+:::
+
+![](backgrounds/zach-callahan--i51Ke0ROTo-unsplash.jpg){.image-right}
+
+
+## {}
+
+::: columns
+::: {.column width="60%"}
+### Grouped coherence
+
+::: {.callout-note}
+## Considering origin and workplace
+
+Attendance can be disaggregated by both **origin** and **workplace**...
+
+::: columns
+::: {.column width="50%"}
+```{r}
+tidygraph::tbl_graph(
+  nodes = tibble(label = c("Attendees", "Domestic", "International")),
+  edges = tibble(from = c(1, 1), to = c(2, 3))
+) |>
+  visnetwork_hierarchy(width = 300, height = 300)
+```
+:::
+::: {.column width="50%"}
+```{r}
+tidygraph::tbl_graph(
+  nodes = tibble(label = c("Attendees", "Academia", "Industry")),
+  edges = tibble(from = c(1, 1), to = c(2, 3))
+) |>
+  visnetwork_hierarchy(width = 300, height = 300)
+```
+:::
+:::
+:::
+:::
+:::
+
+![](backgrounds/zach-callahan--i51Ke0ROTo-unsplash.jpg){.image-right}
+
+
+
+## {}
+
+::: columns
+::: {.column width="60%"}
+### Grouped coherence
+
+::: {.callout-note}
+## Considering origin and workplace
+
+and then further disaggregated by the other.
+
+::: columns
+::: {.column width="50%"}
+```{r}
+tidygraph::tbl_graph(
+  nodes = tibble(label = c("Attendees", "Domestic", "International", "Domestic\n& Academia", "Domestic\n& Industry", "International\n& Academia", "International\n& Industry")),
+  edges = tibble(from = c(1, 1, 2, 2, 3, 3), to = c(2, 3, 4, 5, 6, 7))
+) |>
+  visnetwork_hierarchy(width = 300, height = 400)
+```
+:::
+::: {.column width="50%"}
+```{r}
+tidygraph::tbl_graph(
+  nodes = tibble(label = c("Attendees", "Academia", "Industry", "Academia\n& Domestic", "Academia\n& International", "Industry\n& Domestic", "Industry\n& International")),
+  edges = tibble(from = c(1, 1, 2, 2, 3, 3), to = c(2, 3, 4, 5, 6, 7))
+) |>
+  visnetwork_hierarchy(width = 300, height = 400)
+```
+:::
+:::
+
+A [**grouped**]{.term} structure has the same top and bottom series.
+
+:::
+:::
+:::
+
+![](backgrounds/zach-callahan--i51Ke0ROTo-unsplash.jpg){.image-right}
+
+## {}
+
+::: columns
+::: {.column width="60%"}
+### Grouped coherence
+
+::: {.callout-note}
+## Considering origin and workplace
+
+The [**grouped**]{.term} structure can be plotted in a single graph.
+
+```{r}
+tidygraph::tbl_graph(
+  nodes = tibble(label = c("Attendees", "Domestic", "International", "Academia", "Industry", "Domestic\n& Academia", "Domestic\n& Industry", "International\n& Academia", "International\n& Industry")),
+  edges = tibble(
+    from  = c(1, 1, 1, 1, 2, 4, 2, 5, 3, 4, 3, 5), 
+    to    = c(2, 3, 4, 5, 6, 6, 7, 7, 8, 8, 9, 9),
+    color = hcl.colors(3, "Dark2")[c(1,1,2,2,1,2,1,2,1,2,1,2)]
+  )
+) |>
+  visnetwork_graph(width = 600, height = 400)
+```
+
+::: {.fragment .fade-in}
+In graph terms, this is a [**directed acyclical graph**]{.term} (DAG).
+:::
+:::
+
+:::
+:::
+
+![](backgrounds/zach-callahan--i51Ke0ROTo-unsplash.jpg){.image-right}
+
+
+## {}
+
+::: columns
+::: {.column width="40%"}
+:::
+::: {.column width="60%"}
+### Temporal coherence
+
+::: {.callout-note}
+A time series can be disaggregated by temporal granularity
+
+```{r}
+tidygraph::tbl_graph(
+  nodes = tibble(label = c("Year", "Q1", "Q2", "Q3", "Q4", month.abb)),
+  edges = tibble(from = c(rep(1, 4), rep(2:5, each = 3)), to = c(2:17))
+) |>
+  visnetwork_hierarchy(width = 600, height = 200) |> 
+  visNodes(font = list(size = 40))
+```
+:::
+
+::: {.callout-paper}
+Temporal reconciliation is described in @ATHANASOPOULOS201760.
+:::
+
+::: {.fragment .fade-in}
+::: {.callout-question}
+## What type of coherence structure is this?
+
+::: {.fragment .fade-in}
+This is a [**polytree**]{.term}, so this structure is [**hierarchical**]{.term}.
+:::
+:::
+:::
+:::
+:::
+
+![](backgrounds/courtney-smith-pCLKkPHpCz0-unsplash.jpg){.image-left}
+
+
+## {}
+
+::: columns
+::: {.column width="40%"}
+:::
+::: {.column width="60%"}
+### Temporal coherence
+
+```{r}
+tidygraph::tbl_graph(
+  nodes = tibble(label = c("Year", "Q1", "Q2", "Q3", "Q4", month.abb)),
+  edges = tibble(from = c(rep(1, 4), rep(2:5, each = 3)), to = c(2:17))
+) |>
+  visnetwork_hierarchy(width = 700, height = 200) |> 
+  visNodes(font = list(size = 40))
+```
+
+
+```{r}
+tidygraph::tbl_graph(
+  nodes = tibble(label = c("Year", "Jan-Apr", "May-Aug", "Sep-Dec", month.abb)),
+  edges = tibble(from = c(rep(1, 3), rep(2:4, each = 4)), to = c(2:16))
+) |>
+  visnetwork_hierarchy(width = 700, height = 200) |> 
+  visNodes(font = list(size = 40))
+```
+
+::: {.fragment .fade-in}
+::: {.callout-question}
+## What type of coherence structure is this?
+::: {.fragment .fade-in}
+This structure has the same top and bottom series, so 
+
+temporal coherence is a [**grouped**]{.term} constraint.
+:::
+:::
+:::
+:::
+:::
+
+![](backgrounds/courtney-smith-pCLKkPHpCz0-unsplash.jpg){.image-left}
+
+## {}
+
+::: columns
+::: {.column width="40%"}
+:::
+::: {.column width="60%"}
+### Temporal coherence
+
+::: {.callout-tip}
+
+Temporal coherence constraints are [**grouped**]{.term} can also be represented with [**directed acyclical graphs**]{.term} (DAGs).
+
+```{r}
+tidygraph::tbl_graph(
+  nodes = tibble(label = c("Year", "Q1", "Q2", "Q3", "Q4", "Jan-Apr", "May-Aug", "Sep-Dec", month.abb)),
+  edges = tibble(
+    from = c(rep(1, 7), rep(2:5, each = 3), rep(6:8, each = 4)), 
+    to = c(2:8, 9:20, 9:20),
+    grp = c(rep(1, 4), rep(2, 3), rep(1, 12), rep(2, 12)),
+    color = hcl.colors(3, "Dark2")[grp]
+  )
+) |>
+  visnetwork_graph(width = 700, height = 500) |> 
+  visNodes(font = list(size = 30))
+```
+:::
+
+:::
+:::
+
+![](backgrounds/courtney-smith-pCLKkPHpCz0-unsplash.jpg){.image-left}
+
+## {}
+
+::: columns
+::: {.column width="40%"}
+:::
+::: {.column width="60%"}
+### Cross-temporal coherence
+
+::: {.callout-note}
+
+Since both [**grouped**]{.term} and [**temporal**]{.term} coherence are DAGs, they can be combined into a single DAG.
+
+::: columns
+::: {.column width="50%"}
+```{r}
+tidygraph::tbl_graph(
+  nodes = tibble(label = c("Year", "Q1", "Q2", "Q3", "Q4", "Jan-Apr", "May-Aug", "Sep-Dec", month.abb)),
+  edges = tibble(
+    from = c(rep(1, 7), rep(2:5, each = 3), rep(6:8, each = 4)), 
+    to = c(2:8, 9:20, 9:20),
+    grp = c(rep(1, 4), rep(2, 3), rep(1, 12), rep(2, 12)),
+    color = hcl.colors(3, "Dark2")[grp]
+  )
+) |>
+  visnetwork_graph(width = 300, height = 300) |> 
+  visNodes(font = list(size = 30))
+```
+:::
+::: {.column width="50%"}
+```{r}
+tidygraph::tbl_graph(
+  nodes = tibble(label = c("Attendees", "Domestic", "International", "Academia", "Industry", "Domestic\n& Academia", "Domestic\n& Industry", "International\n& Academia", "International\n& Industry")),
+  edges = tibble(
+    from  = c(1, 1, 1, 1, 2, 4, 2, 5, 3, 4, 3, 5), 
+    to    = c(2, 3, 4, 5, 6, 6, 7, 7, 8, 8, 9, 9),
+    color = hcl.colors(4, "Dark2")[c(1,1,2,2,1,2,1,2,1,2,1,2) + 2]
+  )
+) |>
+  visnetwork_graph(width = 300, height = 300)
+```
+:::
+:::
+:::
+
+:::
+:::
+
+![](backgrounds/aleksandar-radovanovic-mXKXJI98aTE-unsplash.jpg){.image-left}
+
+## {}
+
+::: columns
+::: {.column width="60%"}
+### Graph coherence
+
+A [**directed acyclical graph**]{.term} does **not** require a common top and bottom series.
+
+<br>
+
+::: {.fragment .fade-in}
+
+DAGs can describe more general structures than grouped coherence.
+
+::: {.callout-question}
+## Is it reasonable to leverage the full generality of DAGs?
+
+::: {.fragment .fade-in}
+Yes! Let's see why.
+:::
+:::
+:::
+
+:::
+:::
+
+![](backgrounds/eilis-garvey-MskbR8VLNrA-unsplash.jpg){.image-right}
+
+
+## {auto-animate=true}
+
+::: columns
+::: {.column width="40%"}
+:::
+::: {.column width="60%"}
+### Unbalanced graphs
+
+What if the coherency structure had different bottom series?
+
+<br>
+
+This often occurs in these circumstances:
+
+1. Cross-temporal with series observed at **different granularities**.
+2. Multiple **different approaches** to calculating the top series.
+
+:::
+:::
+
+![](backgrounds/peter-law-2fU_lyraUOA-unsplash.jpg){.image-left}
+
+
+## {auto-animate=true}
+
+::: columns
+::: {.column width="40%"}
+:::
+::: {.column width="60%"}
+
+1. Cross-temporal with series observed at **different granularities**.
+
+::: {.fragment .fade-in}
+
+::: {.callout-tip}
+## Example
+Suppose `Sales` is reported quarterly, but `Profit` and `Costs` twice yearly.
+
+:::{data-id="graphtemp"}
+```{r}
+#| echo: false
+#| output: hide
+tidygraph::tbl_graph(
+  nodes = tibble(label = c("Profit (Y)", "Sales (Y)", "-Costs (Y)", "Profit (S1)", "Sales (S1)", "-Costs (S1)", "Profit (S2)", "Sales (S2)", "-Costs (S2)", "Sales (Q1)","Sales (Q2)","Sales (Q3)","Sales (Q4)")),
+  edges = tibble(
+    from  = c(1, 1, 4, 4, 7, 7,    1, 1, 2, 2, 3, 3,   5, 5, 8, 8),
+    to    = c(2, 3, 5, 6, 8, 9,    4, 7, 5, 8, 6, 9,   10, 11, 12, 13),
+    grp   = c(1, 1, 1, 1, 1, 1,    2, 2, 2, 2, 2, 2,   3,  3,  3,  3),
+    color = hcl.colors(3, "Dark2")[grp]
+  )
+) |>
+  visnetwork_graph(width = 600, height = 400) |> 
+  visNodes(font = list(size = 25))
+```
+:::
+:::
+:::
+:::
+:::
+
+![](backgrounds/peter-law-2fU_lyraUOA-unsplash.jpg){.image-left}
+
+## {auto-animate=true}
+
+::: columns
+::: {.column width="40%"}
+:::
+::: {.column width="60%"}
+
+1. Cross-temporal with series observed at **different granularities**.
+
+::: {.callout-tip}
+## Example
+
+:::{data-id="graphtemp"}
+```{r}
+#| echo: false
+#| output: hide
+tidygraph::tbl_graph(
+  nodes = tibble(label = c("Profit (Y)", "Sales (Y)", "-Costs (Y)", "Profit (S1)", "Sales (S1)", "-Costs (S1)", "Profit (S2)", "Sales (S2)", "-Costs (S2)", "Sales (Q1)","Sales (Q2)","Sales (Q3)","Sales (Q4)")),
+  edges = tibble(
+    from  = c(1, 1, 4, 4, 7, 7,    1, 1, 2, 2, 3, 3,   5, 5, 8, 8),
+    to    = c(2, 3, 5, 6, 8, 9,    4, 7, 5, 8, 6, 9,   10, 11, 12, 13),
+    grp   = c(1, 1, 1, 1, 1, 1,    2, 2, 2, 2, 2, 2,   3,  3,  3,  3),
+    color = hcl.colors(3, "Dark2")[grp]
+  )
+) |>
+  visnetwork_graph(width = 600, height = 400) |> 
+  visNodes(font = list(size = 25))
+```
+:::
+This allows the higher frequency `Sales` data to be used with the less frequent `Profit` and `Costs` data!
+:::
+:::
+:::
+
+![](backgrounds/peter-law-2fU_lyraUOA-unsplash.jpg){.image-left}
+
+## {auto-animate=true}
+
+::: columns
+::: {.column width="40%"}
+:::
+::: {.column width="60%"}
+
+2. Multiple **different approaches** to calculating the top series.
+
+::: {.fragment .fade-in}
+::: {.callout-tip}
+## Example
+
+Australian GDP is calculated with 3 approaches:
+
+* Income approach (I)
+* Expenditure approach (E)
+* Production approach (P)
+
+For simplicity consider a small part of these graphs. The complete graph structure has many more disaggregates.
+
+:::
+
+::: {.callout-paper}
+This example is used in @Athanasopoulos2020.
+:::
+:::
+
+:::
+:::
+
+![](backgrounds/peter-law-2fU_lyraUOA-unsplash.jpg){.image-left}
+
+
+## {auto-animate=true}
+
+::: columns
+::: {.column width="40%"}
+:::
+::: {.column width="60%"}
+
+2. Multiple **different approaches** to calculating the top series.
+
+::: {.callout-tip}
+
+* Income approach (I)
+
+```{r}
+aus_expenditure_struct <- tribble(
+  ~ code, ~ parent,
+  "GDP", NA,
+  c("Statistical\nDiscrepancy (I)", "Income", "Taxes"), "GDP"
+) |> 
+  tidyr::unchop(code)
+aus_expenditure_graph <- tidygraph::tbl_graph(
+  nodes = aus_expenditure_struct |> 
+    transmute(label = code),
+  edges = aus_expenditure_struct |> 
+    mutate(across(everything(), ~ match(., code))) |> 
+    filter(!is.na(parent)) |> 
+    rename(from = parent, to = code)
+)
+visnetwork_hierarchy(aus_expenditure_graph, width = 600, height = 200)
+```
+
+* Expenditure approach (E)
+
+```{r}
+aus_expenditure_struct <- tribble(
+  ~ code, ~ parent,
+  "GDP", NA,
+  c("Statistical\nDiscrepancy (E)", "-Imports", "Exports", "Expenses"), "GDP"
+) |> 
+  tidyr::unchop(code)
+aus_expenditure_graph <- tidygraph::tbl_graph(
+  nodes = aus_expenditure_struct |> 
+    transmute(label = code),
+  edges = aus_expenditure_struct |> 
+    mutate(across(everything(), ~ match(., code))) |> 
+    filter(!is.na(parent)) |> 
+    rename(from = parent, to = code)
+)
+visnetwork_hierarchy(aus_expenditure_graph, width = 600, height = 200)
+```
+
+
+:::
+:::
+:::
+
+![](backgrounds/peter-law-2fU_lyraUOA-unsplash.jpg){.image-left}
+
+## {auto-animate=true}
+
+::: columns
+::: {.column width="40%"}
+:::
+::: {.column width="60%"}
+
+2. Multiple **different approaches** to calculating the top series.
+
+::: {.callout-tip}
+
+* Combined approach (I & E)
+
+```{r}
+aus_expenditure_struct <- tribble(
+  ~ code, ~ parent,
+  "GDP", NA,
+  c("Statistical\nDiscrepancy (I)", "Income", "Taxes", "Statistical\nDiscrepancy (E)", "-Imports", "Exports", "Expenses"), "GDP"
+) |> 
+  tidyr::unchop(code)
+aus_expenditure_graph <- tidygraph::tbl_graph(
+  nodes = aus_expenditure_struct |> 
+    transmute(label = code),
+  edges = aus_expenditure_struct |> 
+    mutate(across(everything(), ~ match(., code))) |> 
+    filter(!is.na(parent)) |> 
+    rename(from = parent, to = code) |> 
+    mutate(color = hcl.colors(3, "Dark2")[c(rep(1, 3), rep(2, 4))])
+)
+visnetwork_graph(aus_expenditure_graph, width = 600, height = 400)
+```
+
+:::
+:::
+:::
+
+![](backgrounds/peter-law-2fU_lyraUOA-unsplash.jpg){.image-left}
+
+## {auto-animate=true}
+
+::: columns
+::: {.column width="60%"}
+### Disjoint graphs
+
+::: {.callout-question}
+## What does having different top series mean?
+
+::: {.fragment .fade-in}
+There must be multiple top series.
+
+This often happens if the graph is [**disjoint**]{.term}.
+:::
+:::
+
+::: {.fragment .fade-in}
+This can occur for many reasons:
+
+1. Cross-validation with reconciliation
+2. Partial/local coherency <br>(e.g. not including worldwide total)
+:::
+
+:::
+:::
+
+![](backgrounds/firosnv-photography-Rr3B0LH7W3k-unsplash.jpg){.image-right}
+
+
+## {auto-animate=true}
+
+::: columns
+::: {.column width="60%"}
+
+1. Cross-validation with reconciliation
+
+::: {.callout-tip}
+It makes no sense to aggregate folds of cross-validation.
+
+::: {.fragment .fade-in}
+
+A suitable DAG for cross-validated hierarchies is 
+
+```{r}
+#| echo: false
+#| output: hide
+tidygraph::tbl_graph(
+  nodes = tibble(label = paste0(c("Attendees", "Academic", "Industry"), "\n(fold ", rep(1:3, each = 3), ")")),
+  edges = tibble(from = c(1, 1, 4, 4, 7, 7), to = c(2, 3, 5, 6, 8, 9))
+) |>
+  visnetwork_graph(width = 600, height = 400)
+```
+
+:::
+
+::: {.fragment .fade-in}
+Each disjoint graph can be reconciled separately.
+:::
+
+:::
+
+:::
+:::
+
+![](backgrounds/firosnv-photography-Rr3B0LH7W3k-unsplash.jpg){.image-right}
+
+## {}
+
+::: columns
+::: {.column width="60%"}
+### Graph coherence
+
+::: {.callout-tip}
+
+## DAGs are reasonable (and very useful!)
+
+Graph coherence allows us to describe more general coherence structures, including
+
+* Disjoint graphs (e.g. cross-validation)
+* Partial coherency (simpler reconciliation)
+* Complex unbalanced graphs
+* Mixed temporal granularity data
+
+:::
+
+:::
+:::
+
+![](backgrounds/eilis-garvey-MskbR8VLNrA-unsplash.jpg){.image-right}
+
+
+## {}
+
+::: columns
+::: {.column width="60%"}
+### Recap
+
+::: {.callout-note}
+
+## Coherence and graph theory
+
+* [**Hierarchical**]{.term} coherence is a [**polytree**]{.term}.
+* [**Grouped**]{.term} coherence is a *restricted* [**DAG**]{.term}.
+* [**Graph**]{.term} coherence is an *unrestricted* [**DAG**]{.term}.
+
+DAGs are a useful tool for representing structured time series and producing coherent forecasts.
+
+:::
+
+::: {.fragment .fade-in}
+
+![](resources/set.svg){fig-align="center"}
+
+:::
+
+:::
+:::
+
+![](backgrounds/meric-dagli-7NBO76G5JsE-unsplash.jpg){.image-right}
+
+## {}
+
+### What else?
+
+::: columns
+::: {.column width="60%"}
+
+::: {.callout-tip}
+
+## Other benefits
+
+1. Access to efficient graph algorithms
+2. Visualisation of structured time series
+3. Familiar computing grammar for coherent data
+
+:::
+
+::: {.callout-paper}
+
+## Future work
+
+1. Integrate graph reconciliation into fable
+2. Explore relationship between graph coherency and general linearly constrained time series [@girolimetto2023point]
+3. Investigate alternative graph reconciliation methods
+
+:::
+:::
+:::
+
+![](backgrounds/meric-dagli-7NBO76G5JsE-unsplash.jpg){.image-right}
+
+
+## Thanks for your time!
+
+::: columns
+::: {.column width="60%"}
+
+::: {.callout-link}
+
+## Useful links
+
+![](resources/forum.svg){.icon} [social.mitchelloharawild.com](https://social.mitchelloharawild.com/)
+
+![](resources/projector-screen-outline.svg){.icon} [slides.mitchelloharawild.com/coherent-graphs](https://slides.mitchelloharawild.com/coherent-graphs)
+
+![](resources/github.svg){.icon} [mitchelloharawild/talk-reconciling-graphs](https://github.com/mitchelloharawild/talk-reconciling-graphs)
+
+:::
+
+
+::: {.callout-tip}
+
+## This is a student presentation, please rate it!
+
+<!-- session feedback qr - https://whova.com/portal/session_feedback/ibcj_202306/3127551 -->
+
+::: columns
+::: {.column width="70%"}
+Scan the QR (or go to the Whova app) and click on "Rate Session"
+
+![](resources/rate-whova.png)
+
+:::
+::: {.column width="30%"}
+![](resources/qr-whova.svg){width=300px}
+:::
+:::
+
+
+
+:::
+
+<!-- ::: {.callout-unsplash} -->
+
+<!-- ## Photo credits -->
+
+<!-- * Some are taken by me around Charlottesville -->
+<!-- * Most are from [Unsplash contributors](#unsplash-credits) -->
+
+<!-- ::: -->
+:::
+:::
+
+![](backgrounds/meric-dagli-7NBO76G5JsE-unsplash.jpg){.image-right}
+
+
+<!-- ## {} -->
+
+<!-- ::: columns -->
+<!-- ::: {.column width="40%"} -->
+<!-- ::: -->
+<!-- ::: {.column width="60%"} -->
+<!-- ### Visualising structured time series -->
+<!-- ::: -->
+<!-- ::: -->
+
+<!-- ![](backgrounds/yoksel-zok-aEMEMsBNqeo-unsplash.jpg){.image-left} -->
+
+
+## Unsplash credits
+
+::: {.callout-unsplash}
+
+## Thanks to these Unsplash contributors for their photos
+
+```{r unsplash}
+#| echo: FALSE
+#| cache: TRUE
+library(httr)
+library(purrr)
+unsplash_pattern <- ".*-(.{11})-unsplash\\.jpg$"
+images <- list.files("backgrounds/", pattern = unsplash_pattern)
+ids <- sub(unsplash_pattern, "\\1", images)
+
+get_unsplash_credit <- function(id) {
+  unsplash_url <- "https://api.unsplash.com/" 
+  my_response <- httr::GET(unsplash_url, path = c("photos", id), query = list(client_id=Sys.getenv("UNSPLASH_ACCESS")))
+  xml <- content(my_response)
+  
+  name <- xml$user$name
+  desc <- xml$description%||%"Photo"
+  sprintf(
+    "* %s: [%s%s](%s)",
+    name,
+    strtrim(desc,60-nchar(name)),
+    if(nchar(desc)>(60-nchar(name))) "..." else "",
+    modify_url("https://unsplash.com/", path = file.path("photos", xml$id))
+  )
+}
+htmltools::includeMarkdown(paste0(map_chr(ids, get_unsplash_credit), collapse = "\n"))
+```
+
+:::
+
+## References
