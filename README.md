@@ -46,12 +46,14 @@ reconciliation.
 
 #### Structure
 
-- The basics of reconciliation
+- The basics of reconciliation (quickly)
 - Hierarchical coherence
 - Grouped coherence
 - Graph coherence
 - Disjoint graphs (cross-validation, incomplete reconciliation)
+- Pruning the graph / tree
 - Unbalanced trees
+- Code in fable (multiple roots and disjoint children)
 - Data exploration with graphs
 - Forecast reconciliation on graphs
 
