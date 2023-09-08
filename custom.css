@@ -209,7 +209,8 @@ span.term {
   color: #4582ec;
 }
 
-.fragment-remove .fragment.fade-out.visible {
+.fragment-remove .fragment.fade-out.visible,
+.fragment-remove .fragment.fade-in-then-out.visible {
   display: none;
   height:0px;
   line-height: 0px;
