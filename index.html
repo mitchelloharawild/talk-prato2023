@@ -27,6 +27,70 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
@@ -337,10 +401,10 @@
       margin-right: 0; 
     }
   </style>
-  <script src="index_files/libs/htmlwidgets-1.6.1/htmlwidgets.js"></script>
+  <script src="index_files/libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
   <link href="index_files/libs/vis-9.1.0/vis-network.min.css" rel="stylesheet">
   <script src="index_files/libs/vis-9.1.0/vis-network.min.js"></script>
-  <script src="index_files/libs/visNetwork-binding-2.1.0/visNetwork.js"></script>
+  <script src="index_files/libs/visNetwork-binding-2.1.2/visNetwork.js"></script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -353,14 +417,11 @@
 <div class="column" style="width:37.5%;">
 
 </div><div class="column" style="width:60%;">
-<div class="sticker-float">
-<p><img data-src="media/isf2023.png"></p>
-</div>
 <div class="title" data-id="title">
 <p>Reconciliation of structured time series forecasts with graphs</p>
 </div>
 <div class="dateplace">
-<p>27th June 2023 @ ISF 2023</p>
+<p>27th June 2023 @ IIF Reconciliation Workshop</p>
 </div>
 <p>Mitchell O’Hara-Wild, Monash University</p>
 <div class="smaller">
@@ -376,8 +437,8 @@
 </div>
 <div class="callout-content">
 <p><img data-src="resources/forum.svg" class="icon"> <a href="https://social.mitchelloharawild.com/">social.mitchelloharawild.com</a></p>
-<p><img data-src="resources/projector-screen-outline.svg" class="icon"> <a href="https://slides.mitchelloharawild.com/reconciling-graphs">slides.mitchelloharawild.com/reconciling-graphs</a></p>
-<p><img data-src="resources/github.svg" class="icon"> <a href="https://github.com/mitchelloharawild/talk-reconciling-graphs">mitchelloharawild/talk-reconciling-graphs</a></p>
+<p><img data-src="resources/projector-screen-outline.svg" class="icon"> <a href="https://slides.mitchelloharawild.com/prato2023">slides.mitchelloharawild.com/prato2023</a></p>
+<p><img data-src="resources/github.svg" class="icon"> <a href="https://github.com/mitchelloharawild/talk-prato2023">mitchelloharawild/talk-prato2023</a></p>
 </div>
 </div>
 </div>
@@ -386,254 +447,6 @@
 <p><img data-src="backgrounds/emma-gossett-B645igbiKCw-unsplash.jpg" class="image-left"></p>
 </section>
 <section id="section-1" class="slide level2">
-<h2></h2>
-<div class="columns">
-<div class="column" style="width:37.5%;">
-
-</div><div class="column" style="width:60%;">
-<div class="sticker-float">
-<p><img data-src="media/isf2023.png"></p>
-</div>
-<div class="title" data-id="title">
-<p>Reconciliation of <strong>structured time series forecasts with</strong> graphs</p>
-</div>
-<div class="dateplace">
-<p>27th June 2023 @ ISF 2023</p>
-</div>
-<p>Mitchell O’Hara-Wild, Monash University</p>
-<div class="smaller">
-<p>Supervised by Rob Hyndman and George Athanasopolous</p>
-</div>
-<div class="callout callout-link callout-captioned callout-style-simple">
-<div class="callout-body">
-<div class="callout-caption">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Useful links</strong></p>
-</div>
-<div class="callout-content">
-<p><img data-src="resources/forum.svg" class="icon"> <a href="https://social.mitchelloharawild.com/">social.mitchelloharawild.com</a></p>
-<p><img data-src="resources/projector-screen-outline.svg" class="icon"> <a href="https://slides.mitchelloharawild.com/reconciling-graphs">slides.mitchelloharawild.com/reconciling-graphs</a></p>
-<p><img data-src="resources/github.svg" class="icon"> <a href="https://github.com/mitchelloharawild/talk-reconciling-graphs">mitchelloharawild/talk-reconciling-graphs</a></p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<p><img data-src="backgrounds/emma-gossett-B645igbiKCw-unsplash.jpg" class="image-left"></p>
-</section>
-<section id="the-basics-of-reconciliation" class="slide level2">
-<h2>The basics of reconciliation</h2>
-<div class="sticker-float">
-<p><img data-src="media/isf2023.png"></p>
-</div>
-<div class="columns">
-<div class="column" style="width:60%;">
-<div class="callout callout-question callout-captioned callout-style-simple">
-<div class="callout-body">
-<div class="callout-caption">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>How many forecasters will attend ISF 2024 and beyond?</strong></p>
-</div>
-<div class="callout-content">
-<div class="fragment fade-in">
-<p>Forecast <span class="math inline">\(\text{Attendees}_{T+h|T}\)</span> with a suitable model and data.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="fragment fade-in">
-<div class="callout callout-question callout-captioned callout-style-simple">
-<div class="callout-body">
-<div class="callout-caption">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>How many attendees are from academia and industry?</strong></p>
-</div>
-<div class="callout-content">
-<div class="fragment fade-in">
-<p>Forecast <span class="math inline">\(\text{Academic}_{T+h|T}\)</span> and <span class="math inline">\(\text{Industry}_{T+h|T}\)</span> with</p>
-<p>suitable models and data.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="fragment fade-in">
-<div class="callout callout-important callout-captioned callout-style-simple">
-<div class="callout-body">
-<div class="callout-caption">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Something doesn’t add up here…</strong></p>
-</div>
-<div class="callout-content">
-<p>Independently produced forecasts are <span class="danger"><strong>incoherent</strong></span>,</p>
-<p><span class="math inline">\(\text{Attendees}_{T+h|T} \neq \text{Academic}_{T+h|T} + \text{Industry}_{T+h|T}\)</span>.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<p><img data-src="backgrounds/darden.jpg" class="image-right"></p>
-</section>
-<section id="the-basics-of-reconciliation-1" class="slide level2">
-<h2>The basics of reconciliation</h2>
-<div class="sticker-float">
-<p><img data-src="media/isf2023.png"></p>
-</div>
-<div class="columns">
-<div class="column" style="width:60%;">
-<div class="callout callout-tip callout-captioned callout-style-simple">
-<div class="callout-body">
-<div class="callout-caption">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Impose constraints to ensure coherency</strong></p>
-</div>
-<div class="callout-content">
-<p>Adjust the forecasts to satisfy the constraint</p>
-<p><span class="math inline">\(\text{Attendees}_{T+h|T} = \text{Academic}_{T+h|T} + \text{Industry}_{T+h|T}\)</span>.</p>
-<div class="fragment fade-in">
-<p><br> Often we have many constraints, so matrices are used:</p>
-<p><span class="math display">\[
-\begin{bmatrix}
-  \text{Attendees}_{t} \\
-  \text{Academic}_{t} \\
-  \text{Industry}_{t} \\
-\end{bmatrix}
-=
-\begin{bmatrix}
-  1 &amp; 1 \\
-  1 &amp; 0\\
-  0 &amp; 1 \\
-\end{bmatrix}
-\begin{bmatrix}
-  \text{Academic}_{t} \\
-  \text{Industry}_{t} \\
-\end{bmatrix}
-\]</span></p>
-<p>or compactly, <span class="math inline">\(\mathbf{y}_t = \mathbf{S} \mathbf{b}_t\)</span></p>
-</div>
-</div>
-</div>
-</div>
-<div class="fragment fade-in">
-<div class="callout callout-paper callout-style-simple">
-<div class="callout-body">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-content">
-<p>“Summing” or “structural” matrices are described in <span class="citation" data-cites="hyndman2011">Hyndman et al. (<a href="#/references" role="doc-biblioref" onclick="">2011</a>)</span>.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<p><img data-src="backgrounds/darden.jpg" class="image-right"></p>
-</section>
-<section id="the-basics-of-reconciliation-2" class="slide level2">
-<h2>The basics of reconciliation</h2>
-<div class="sticker-float">
-<p><img data-src="media/isf2023.png"></p>
-</div>
-<div class="columns">
-<div class="column" style="width:60%;">
-<div class="callout callout-tip callout-captioned callout-style-simple">
-<div class="callout-body">
-<div class="callout-caption">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Impose constraints to ensure coherency</strong></p>
-</div>
-<div class="callout-content">
-<p>These matrices are not easy to read, so we use graphs.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div id="htmlwidget-ff14d53d3d54c6f763e3" style="width:600px;height:300px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-ff14d53d3d54c6f763e3">{"x":{"nodes":{"label":["Attendees","Academic","Industry"],"id":[1,2,3],"level":[0,1,1]},"edges":{"from":[1,1],"to":[2,3]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":16}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":600,"height":300,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
-</div>
-</div>
-<p>The weight of the edges corresponds to the <span class="math inline">\(\mathbf{S}\)</span> matrix.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<p><img data-src="backgrounds/darden.jpg" class="image-right"></p>
-</section>
-<section id="the-basics-of-reconciliation-3" class="slide level2">
-<h2>The basics of reconciliation</h2>
-<div class="sticker-float">
-<p><img data-src="media/isf2023.png"></p>
-</div>
-<div class="columns">
-<div class="column" style="width:60%;">
-<div class="callout callout-note callout-captioned callout-style-simple">
-<div class="callout-body">
-<div class="callout-caption">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Reconciling forecasts</strong></p>
-</div>
-<div class="callout-content">
-<p>The L2 optimal way to adjust the forecasts to be coherent is MinT <span class="citation" data-cites="Wickramasuriya2018OptimalFR">(<a href="#/references" role="doc-biblioref" onclick="">Wickramasuriya, Athanasopoulos, and Hyndman 2018</a>)</span>:</p>
-<p><span class="math display">\[
-  \tilde{\mathbf{y}}_{T+h|T}=\mathbf{S}(\mathbf{S}'\mathbf{W}_{h}^{-1}\mathbf{S})^{-1}\mathbf{S}'\mathbf{W}_{h}^{-1}\hat{\mathbf{y}}_{T+h|T}.
-\]</span></p>
-<p>where <span class="math inline">\(\mathbf{W}_{h}=\text{Var}[(\mathbf{y}_{t+h|t}-\hat{\mathbf{y}}_{t+h|t})]\)</span></p>
-<div class="fragment fade-in">
-<p><br> There are many other reconciliation techniques and formulations that also work well.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<p><img data-src="backgrounds/darden.jpg" class="image-right"></p>
-</section>
-<section id="the-basics-of-reconciliation-4" class="slide level2">
-<h2>The basics of reconciliation</h2>
-<div class="sticker-float">
-<p><img data-src="media/isf2023.png"></p>
-</div>
-<div class="columns">
-<div class="column" style="width:60%;">
-<div class="callout callout-tip callout-captioned callout-style-simple">
-<div class="callout-body">
-<div class="callout-caption">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Reconciling forecasts</strong></p>
-</div>
-<div class="callout-content">
-<p>Not only are coherent forecasts <strong>more reasonable</strong>, they are <strong>more accurate</strong>!</p>
-<p><br></p>
-<div class="fragment fade-in">
-<p>The large matrices can become complicated quickly when considering large collections of coherent time series.</p>
-<p><br></p>
-<p>Let’s instead consider <strong>graphs</strong>.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<p><img data-src="backgrounds/darden.jpg" class="image-right"></p>
-</section>
-<section id="section-2" class="slide level2">
 <h2></h2>
 <div class="columns">
 <div class="column" style="width:40%;">
@@ -650,10 +463,10 @@
 </div>
 <div class="callout-content">
 <p>The basic constraint shown before is ‘<span class="term"><strong>hierarchical</strong></span>’</p>
-<div class="cell">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-2_e2468f12c1170710157d289d4efa68d5">
 <div class="cell-output-display">
-<div id="htmlwidget-7ba4bc2134298146deab" style="width:600px;height:300px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-7ba4bc2134298146deab">{"x":{"nodes":{"label":["Attendees","Academic","Industry"],"id":[1,2,3],"level":[0,1,1]},"edges":{"from":[1,1],"to":[2,3]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":16}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":600,"height":300,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-908738ab7597be4b08f5" style="width:600px;height:300px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-908738ab7597be4b08f5">{"x":{"nodes":{"label":["Attendees","Academic","Industry"],"id":[1,2,3],"level":[0,1,1]},"edges":{"from":[1,1],"to":[2,3]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":16}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":600,"height":300,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -663,7 +476,7 @@
 </div>
 
 <img data-src="backgrounds/PXL_20230626_200731948.jpg" class="image-left r-stretch"></section>
-<section id="section-3" class="slide level2">
+<section id="section-2" class="slide level2">
 <h2></h2>
 <div class="columns">
 <div class="column" style="width:40%;">
@@ -680,10 +493,10 @@
 </div>
 <div class="callout-content">
 <p><span class="term"><strong>Hierarchical</strong></span> series often have multiple layers</p>
-<div class="cell">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-3_05fcfc17d23f30755869158cca7ddd7f">
 <div class="cell-output-display">
-<div id="htmlwidget-bdbc46af1297bd0df333" style="width:600px;height:400px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-bdbc46af1297bd0df333">{"x":{"nodes":{"label":["Attendees","Academic","Industry","Students","Staff"],"id":[1,2,3,4,5],"level":[0,1,1,2,2]},"edges":{"from":[1,1,2,2],"to":[2,3,4,5]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":16}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":600,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-d0505c9c04d02f41609b" style="width:600px;height:400px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-d0505c9c04d02f41609b">{"x":{"nodes":{"label":["Attendees","Academic","Industry","Students","Staff"],"id":[1,2,3,4,5],"level":[0,1,1,2,2]},"edges":{"from":[1,1,2,2],"to":[2,3,4,5]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":16}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":600,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="fragment fade-in">
@@ -696,32 +509,37 @@
 </div>
 
 <img data-src="backgrounds/PXL_20230626_200731948.jpg" class="image-left r-stretch"></section>
-<section id="section-4" class="slide level2">
+<section id="section-3" class="slide level2">
 <h2></h2>
 <div class="columns">
 <div class="column" style="width:60%;">
 <h3 id="grouped-coherence">Grouped coherence</h3>
-<p>There are many ways to disaggregate a series.</p>
-<p>Consider where attendees have travelled from, <strong>domestic</strong> or <strong>international</strong>?</p>
-<div class="fragment fade-in">
-<div class="cell">
-<div class="cell-output-display">
-<div id="htmlwidget-f64d46c26a0465edb361" style="width:600px;height:300px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-f64d46c26a0465edb361">{"x":{"nodes":{"label":["Attendees","Domestic","International"],"id":[1,2,3],"level":[0,1,1]},"edges":{"from":[1,1],"to":[2,3]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":16}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":600,"height":300,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
-</div>
-</div>
-</div>
-<div class="fragment fade-in">
-<div class="callout callout-question callout-captioned callout-style-simple">
+<div class="callout callout-note callout-captioned callout-style-simple">
 <div class="callout-body">
 <div class="callout-caption">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>What about attendee origin in academia/industry?</strong></p>
+<p><strong>Considering origin and workplace</strong></p>
 </div>
 <div class="callout-content">
-<p>Let’s consider the combinations.</p>
+<p>Attendance can be disaggregated by both <strong>origin</strong> and <strong>workplace</strong>…</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-4_7cb70f6f9b1a52b82651ef76722e5247">
+<div class="cell-output-display">
+<div id="htmlwidget-99ee303147c921adae70" style="width:300px;height:300px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-99ee303147c921adae70">{"x":{"nodes":{"label":["Attendees","Domestic","International"],"id":[1,2,3],"level":[0,1,1]},"edges":{"from":[1,1],"to":[2,3]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":16}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":300,"height":300,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-5_35f4ea409325e42e697046347cba0b7e">
+<div class="cell-output-display">
+<div id="htmlwidget-719e0a0e30d8578f086a" style="width:300px;height:300px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-719e0a0e30d8578f086a">{"x":{"nodes":{"label":["Attendees","Academia","Industry"],"id":[1,2,3],"level":[0,1,1]},"edges":{"from":[1,1],"to":[2,3]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":16}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":300,"height":300,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -730,7 +548,7 @@
 </div>
 
 <img data-src="backgrounds/zach-callahan--i51Ke0ROTo-unsplash.jpg" class="image-right r-stretch"></section>
-<section id="section-5" class="slide level2">
+<section id="section-4" class="slide level2">
 <h2></h2>
 <div class="columns">
 <div class="column" style="width:60%;">
@@ -744,24 +562,25 @@
 <p><strong>Considering origin and workplace</strong></p>
 </div>
 <div class="callout-content">
-<p>Attendance can be disaggregated by both <strong>origin</strong> and <strong>workplace</strong>…</p>
+<p>and then further disaggregated by the other.</p>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="cell">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-6_1c05089581a74e5287f5d3182c4aca3d">
 <div class="cell-output-display">
-<div id="htmlwidget-4f527195917270842b60" style="width:300px;height:300px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-4f527195917270842b60">{"x":{"nodes":{"label":["Attendees","Domestic","International"],"id":[1,2,3],"level":[0,1,1]},"edges":{"from":[1,1],"to":[2,3]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":16}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":300,"height":300,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-b074db299fe862e8937f" style="width:300px;height:400px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-b074db299fe862e8937f">{"x":{"nodes":{"label":["Attendees","Domestic","International","Domestic\n& Academia","Domestic\n& Industry","International\n& Academia","International\n& Industry"],"id":[1,2,3,4,5,6,7],"level":[0,1,1,2,2,2,2]},"edges":{"from":[1,1,2,2,3,3],"to":[2,3,4,5,6,7]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":16}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":300,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div class="cell">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-7_7dd80c4cac99f215fc35f19f88fd7b48">
 <div class="cell-output-display">
-<div id="htmlwidget-790a7efa8f13731f037b" style="width:300px;height:300px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-790a7efa8f13731f037b">{"x":{"nodes":{"label":["Attendees","Academia","Industry"],"id":[1,2,3],"level":[0,1,1]},"edges":{"from":[1,1],"to":[2,3]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":16}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":300,"height":300,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-63cc95bb53543453cd3c" style="width:300px;height:400px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-63cc95bb53543453cd3c">{"x":{"nodes":{"label":["Attendees","Academia","Industry","Academia\n& Domestic","Academia\n& International","Industry\n& Domestic","Industry\n& International"],"id":[1,2,3,4,5,6,7],"level":[0,1,1,2,2,2,2]},"edges":{"from":[1,1,2,2,3,3],"to":[2,3,4,5,6,7]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":16}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":300,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
 </div>
+<p>A <span class="term"><strong>grouped</strong></span> structure has the <strong>same top and bottom series</strong>.</p>
 </div>
 </div>
 </div>
@@ -769,7 +588,7 @@
 </div>
 
 <img data-src="backgrounds/zach-callahan--i51Ke0ROTo-unsplash.jpg" class="image-right r-stretch"></section>
-<section id="section-6" class="slide level2">
+<section id="section-5" class="slide level2">
 <h2></h2>
 <div class="columns">
 <div class="column" style="width:60%;">
@@ -783,51 +602,11 @@
 <p><strong>Considering origin and workplace</strong></p>
 </div>
 <div class="callout-content">
-<p>and then further disaggregated by the other.</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell">
-<div class="cell-output-display">
-<div id="htmlwidget-b14cd54c141148c96407" style="width:300px;height:400px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-b14cd54c141148c96407">{"x":{"nodes":{"label":["Attendees","Domestic","International","Domestic\n& Academia","Domestic\n& Industry","International\n& Academia","International\n& Industry"],"id":[1,2,3,4,5,6,7],"level":[0,1,1,2,2,2,2]},"edges":{"from":[1,1,2,2,3,3],"to":[2,3,4,5,6,7]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":16}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":300,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell">
-<div class="cell-output-display">
-<div id="htmlwidget-755a808efe0be7ae8d2a" style="width:300px;height:400px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-755a808efe0be7ae8d2a">{"x":{"nodes":{"label":["Attendees","Academia","Industry","Academia\n& Domestic","Academia\n& International","Industry\n& Domestic","Industry\n& International"],"id":[1,2,3,4,5,6,7],"level":[0,1,1,2,2,2,2]},"edges":{"from":[1,1,2,2,3,3],"to":[2,3,4,5,6,7]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":16}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":300,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
-</div>
-</div>
-</div>
-</div>
-<p>A <span class="term"><strong>grouped</strong></span> structure has the same top and bottom series.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<img data-src="backgrounds/zach-callahan--i51Ke0ROTo-unsplash.jpg" class="image-right r-stretch"></section>
-<section id="section-7" class="slide level2">
-<h2></h2>
-<div class="columns">
-<div class="column" style="width:60%;">
-<h3 id="grouped-coherence-3">Grouped coherence</h3>
-<div class="callout callout-note callout-captioned callout-style-simple">
-<div class="callout-body">
-<div class="callout-caption">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Considering origin and workplace</strong></p>
-</div>
-<div class="callout-content">
 <p>The <span class="term"><strong>grouped</strong></span> structure can be plotted in a single graph.</p>
-<div class="cell">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-8_42e11946f3a90ec20348b710e94e19ef">
 <div class="cell-output-display">
-<div id="htmlwidget-35166dd4727ee4c4ca0f" style="width:600px;height:400px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-35166dd4727ee4c4ca0f">{"x":{"nodes":{"label":["Attendees","Domestic","International","Academia","Industry","Domestic\n& Academia","Domestic\n& Industry","International\n& Academia","International\n& Industry"],"id":[1,2,3,4,5,6,7,8,9],"x":[-0.003371926391818159,-0.8582194521345512,0.86356954610132,0.172705587374925,-0.1708640521216115,-0.6628108638547205,-1,1,0.6736804153398088],"y":[-0.01390576951516009,0.1644008084973776,-0.1675798740901829,0.8533471780243223,-0.8822395672944368,1,-0.6855433690152226,0.6766420294961848,-1]},"edges":{"from":[1,1,1,1,2,4,2,5,3,4,3,5],"to":[2,3,4,5,6,6,7,7,8,8,9,9],"color":["#C87A8A","#C87A8A","#6B9D59","#6B9D59","#C87A8A","#6B9D59","#C87A8A","#6B9D59","#C87A8A","#6B9D59","#C87A8A","#6B9D59"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":600,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-d41d6052f6fdf186a1aa" style="width:600px;height:400px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-d41d6052f6fdf186a1aa">{"x":{"nodes":{"label":["Attendees","Domestic","International","Academia","Industry","Domestic\n& Academia","Domestic\n& Industry","International\n& Academia","International\n& Industry"],"id":[1,2,3,4,5,6,7,8,9],"x":[-0.003371926391818159,-0.8582194521345512,0.86356954610132,0.172705587374925,-0.1708640521216115,-0.6628108638547205,-1,1,0.6736804153398088],"y":[-0.01390576951516009,0.1644008084973776,-0.1675798740901829,0.8533471780243223,-0.8822395672944368,1,-0.6855433690152226,0.6766420294961848,-1]},"edges":{"from":[1,1,1,1,2,4,2,5,3,4,3,5],"to":[2,3,4,5,6,6,7,7,8,8,9,9],"color":["#C87A8A","#C87A8A","#6B9D59","#6B9D59","#C87A8A","#6B9D59","#C87A8A","#6B9D59","#C87A8A","#6B9D59","#C87A8A","#6B9D59"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":600,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="fragment fade-in">
@@ -840,7 +619,7 @@
 </div>
 
 <img data-src="backgrounds/zach-callahan--i51Ke0ROTo-unsplash.jpg" class="image-right r-stretch"></section>
-<section id="section-8" class="slide level2">
+<section id="section-6" class="slide level2">
 <h2></h2>
 <div class="columns">
 <div class="column" style="width:40%;">
@@ -854,10 +633,10 @@
 </div>
 <div class="callout-content">
 <p>A time series can be disaggregated by temporal granularity</p>
-<div class="cell">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-9_49a33a651060fed51898706c3fabdd22">
 <div class="cell-output-display">
-<div id="htmlwidget-c7e315359184363c4f20" style="width:600px;height:200px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-c7e315359184363c4f20">{"x":{"nodes":{"label":["Year","Q1","Q2","Q3","Q4","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"id":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"level":[0,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2]},"edges":{"from":[1,1,1,1,2,2,2,3,3,3,4,4,4,5,5,5],"to":[2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":40}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":600,"height":200,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-43345730ed41751c47ac" style="width:600px;height:200px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-43345730ed41751c47ac">{"x":{"nodes":{"label":["Year","Q1","Q2","Q3","Q4","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"id":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"level":[0,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2]},"edges":{"from":[1,1,1,1,2,2,2,3,3,3,4,4,4,5,5,5],"to":[2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":40}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":600,"height":200,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -894,23 +673,23 @@
 </div>
 
 <img data-src="backgrounds/courtney-smith-pCLKkPHpCz0-unsplash.jpg" class="image-left r-stretch"></section>
-<section id="section-9" class="slide level2">
+<section id="section-7" class="slide level2">
 <h2></h2>
 <div class="columns">
 <div class="column" style="width:40%;">
 
 </div><div class="column" style="width:60%;">
 <h3 id="temporal-coherence-1">Temporal coherence</h3>
-<div class="cell">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-10_9737742f32f86b089902d144c114ca48">
 <div class="cell-output-display">
-<div id="htmlwidget-af956c3e6fd48c1c79e6" style="width:700px;height:200px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-af956c3e6fd48c1c79e6">{"x":{"nodes":{"label":["Year","Q1","Q2","Q3","Q4","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"id":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"level":[0,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2]},"edges":{"from":[1,1,1,1,2,2,2,3,3,3,4,4,4,5,5,5],"to":[2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":40}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":700,"height":200,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-a19ee93d0658b4ed9769" style="width:700px;height:200px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-a19ee93d0658b4ed9769">{"x":{"nodes":{"label":["Year","Q1","Q2","Q3","Q4","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"id":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"level":[0,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2]},"edges":{"from":[1,1,1,1,2,2,2,3,3,3,4,4,4,5,5,5],"to":[2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":40}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":700,"height":200,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
-<div class="cell">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-11_9d9cf04e7a54275b110d26f132e864b4">
 <div class="cell-output-display">
-<div id="htmlwidget-7cd76a0172fc0678f37e" style="width:700px;height:200px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-7cd76a0172fc0678f37e">{"x":{"nodes":{"label":["Year","Jan-Apr","May-Aug","Sep-Dec","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"id":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],"level":[0,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2]},"edges":{"from":[1,1,1,2,2,2,2,3,3,3,3,4,4,4,4],"to":[2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":40}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":700,"height":200,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-88b5435f65bf9906378b" style="width:700px;height:200px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-88b5435f65bf9906378b">{"x":{"nodes":{"label":["Year","Jan-Apr","May-Aug","Sep-Dec","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"id":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],"level":[0,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2]},"edges":{"from":[1,1,1,2,2,2,2,3,3,3,3,4,4,4,4],"to":[2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":40}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":700,"height":200,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="fragment fade-in">
@@ -935,7 +714,7 @@
 </div>
 
 <img data-src="backgrounds/courtney-smith-pCLKkPHpCz0-unsplash.jpg" class="image-left r-stretch"></section>
-<section id="section-10" class="slide level2">
+<section id="section-8" class="slide level2">
 <h2></h2>
 <div class="columns">
 <div class="column" style="width:40%;">
@@ -949,10 +728,10 @@
 </div>
 <div class="callout-content">
 <p>Temporal coherence constraints are <span class="term"><strong>grouped</strong></span> can also be represented with <span class="term"><strong>directed acyclical graphs</strong></span> (DAGs).</p>
-<div class="cell">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-12_303f110793675bc8b1b71069f2d33f2a">
 <div class="cell-output-display">
-<div id="htmlwidget-16124944d0b31a406820" style="width:700px;height:500px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-16124944d0b31a406820">{"x":{"nodes":{"label":["Year","Q1","Q2","Q3","Q4","Jan-Apr","May-Aug","Sep-Dec","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"id":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],"x":[-0.05400594153204008,-0.4025836122675311,0.5279899127542234,0.3499252905890411,-0.6550819584534231,-0.1840021427311581,0.6690920750504299,-0.4897559363236491,-0.5080661329043736,-0.2400351501051694,-0.6834033281094694,0.3225316288369899,0.9185469261158925,1,0.7265907610337898,0.8740049766555253,-0.03854619266894377,-1,-0.9357883705518357,-0.7009937986365129],"y":[-0.08026365469781349,0.5549817302860942,0.2565900683007281,-0.602076668830982,-0.5290851774580543,0.6295752330530142,-0.2153387036532498,-0.6767056635977524,0.9669927230446371,1,0.7563276781751973,0.6913868441606599,0.2322349843697402,0.03229075048331187,-0.7226803954898391,-0.5592963964373876,-0.9135472332778896,-0.5978961503510797,-0.8600785125976133,-1]},"edges":{"from":[1,1,1,1,1,1,1,2,2,2,3,3,3,4,4,4,5,5,5,6,6,6,6,7,7,7,7,8,8,8,8],"to":[2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,9,10,11,12,13,14,15,16,17,18,19,20],"grp":[1,1,1,1,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2],"color":["#C87A8A","#C87A8A","#C87A8A","#C87A8A","#6B9D59","#6B9D59","#6B9D59","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20,"font":{"size":30}},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":700,"height":500,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-c55b3292f3811e071a4f" style="width:700px;height:500px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-c55b3292f3811e071a4f">{"x":{"nodes":{"label":["Year","Q1","Q2","Q3","Q4","Jan-Apr","May-Aug","Sep-Dec","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"id":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],"x":[-0.05400594153204008,-0.4025836122675311,0.5279899127542234,0.3499252905890411,-0.6550819584534231,-0.1840021427311581,0.6690920750504299,-0.4897559363236491,-0.5080661329043736,-0.2400351501051694,-0.6834033281094694,0.3225316288369899,0.9185469261158925,1,0.7265907610337898,0.8740049766555253,-0.03854619266894377,-1,-0.9357883705518357,-0.7009937986365129],"y":[-0.08026365469781349,0.5549817302860942,0.2565900683007281,-0.602076668830982,-0.5290851774580543,0.6295752330530142,-0.2153387036532498,-0.6767056635977524,0.9669927230446371,1,0.7563276781751973,0.6913868441606599,0.2322349843697402,0.03229075048331187,-0.7226803954898391,-0.5592963964373876,-0.9135472332778896,-0.5978961503510797,-0.8600785125976133,-1]},"edges":{"from":[1,1,1,1,1,1,1,2,2,2,3,3,3,4,4,4,5,5,5,6,6,6,6,7,7,7,7,8,8,8,8],"to":[2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,9,10,11,12,13,14,15,16,17,18,19,20],"grp":[1,1,1,1,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2],"color":["#C87A8A","#C87A8A","#C87A8A","#C87A8A","#6B9D59","#6B9D59","#6B9D59","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20,"font":{"size":30}},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":700,"height":500,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -962,7 +741,7 @@
 </div>
 
 <img data-src="backgrounds/courtney-smith-pCLKkPHpCz0-unsplash.jpg" class="image-left r-stretch"></section>
-<section id="section-11" class="slide level2">
+<section id="section-9" class="slide level2 fragment-remove">
 <h2></h2>
 <div class="columns">
 <div class="column" style="width:40%;">
@@ -975,21 +754,31 @@
 <i class="callout-icon"></i>
 </div>
 <div class="callout-content">
-<p>Since both <span class="term"><strong>grouped</strong></span> and <span class="term"><strong>temporal</strong></span> coherence are DAGs, they can be combined into a single DAG.</p>
+<p>Since both <span class="term"><strong>grouped</strong></span> and <span class="term"><strong>temporal</strong></span> coherence are DAGs, the interaction between them is a single DAG.</p>
+<div class="fragment fade-out" data-fragment-index="1">
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="cell">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-13_f20b2a6fd431c8c94f0f8628229c9360">
 <div class="cell-output-display">
-<div id="htmlwidget-2eab40168dfc7a078436" style="width:300px;height:300px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-2eab40168dfc7a078436">{"x":{"nodes":{"label":["Year","Q1","Q2","Q3","Q4","Jan-Apr","May-Aug","Sep-Dec","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"id":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],"x":[-0.05400594153204008,-0.4025836122675311,0.5279899127542234,0.3499252905890411,-0.6550819584534231,-0.1840021427311581,0.6690920750504299,-0.4897559363236491,-0.5080661329043736,-0.2400351501051694,-0.6834033281094694,0.3225316288369899,0.9185469261158925,1,0.7265907610337898,0.8740049766555253,-0.03854619266894377,-1,-0.9357883705518357,-0.7009937986365129],"y":[-0.08026365469781349,0.5549817302860942,0.2565900683007281,-0.602076668830982,-0.5290851774580543,0.6295752330530142,-0.2153387036532498,-0.6767056635977524,0.9669927230446371,1,0.7563276781751973,0.6913868441606599,0.2322349843697402,0.03229075048331187,-0.7226803954898391,-0.5592963964373876,-0.9135472332778896,-0.5978961503510797,-0.8600785125976133,-1]},"edges":{"from":[1,1,1,1,1,1,1,2,2,2,3,3,3,4,4,4,5,5,5,6,6,6,6,7,7,7,7,8,8,8,8],"to":[2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,9,10,11,12,13,14,15,16,17,18,19,20],"grp":[1,1,1,1,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2],"color":["#C87A8A","#C87A8A","#C87A8A","#C87A8A","#6B9D59","#6B9D59","#6B9D59","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20,"font":{"size":30}},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":300,"height":300,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-cd30f43917514dab3a09" style="width:300px;height:300px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-cd30f43917514dab3a09">{"x":{"nodes":{"label":["Year","Q1","Q2","Q3","Q4","Jan-Apr","May-Aug","Sep-Dec","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"id":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],"x":[-0.05400594153204008,-0.4025836122675311,0.5279899127542234,0.3499252905890411,-0.6550819584534231,-0.1840021427311581,0.6690920750504299,-0.4897559363236491,-0.5080661329043736,-0.2400351501051694,-0.6834033281094694,0.3225316288369899,0.9185469261158925,1,0.7265907610337898,0.8740049766555253,-0.03854619266894377,-1,-0.9357883705518357,-0.7009937986365129],"y":[-0.08026365469781349,0.5549817302860942,0.2565900683007281,-0.602076668830982,-0.5290851774580543,0.6295752330530142,-0.2153387036532498,-0.6767056635977524,0.9669927230446371,1,0.7563276781751973,0.6913868441606599,0.2322349843697402,0.03229075048331187,-0.7226803954898391,-0.5592963964373876,-0.9135472332778896,-0.5978961503510797,-0.8600785125976133,-1]},"edges":{"from":[1,1,1,1,1,1,1,2,2,2,3,3,3,4,4,4,5,5,5,6,6,6,6,7,7,7,7,8,8,8,8],"to":[2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,9,10,11,12,13,14,15,16,17,18,19,20],"grp":[1,1,1,1,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2],"color":["#C87A8A","#C87A8A","#C87A8A","#C87A8A","#6B9D59","#6B9D59","#6B9D59","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20,"font":{"size":30}},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":300,"height":300,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div class="cell">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-14_d7a0008b798733cedf12f11887acba0c">
 <div class="cell-output-display">
-<div id="htmlwidget-44fb146cc6bc24bedb23" style="width:300px;height:300px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-44fb146cc6bc24bedb23">{"x":{"nodes":{"label":["Attendees","Domestic","International","Academia","Industry","Domestic\n& Academia","Domestic\n& Industry","International\n& Academia","International\n& Industry"],"id":[1,2,3,4,5,6,7,8,9],"x":[-0.003371926391818159,-0.8582194521345512,0.86356954610132,0.172705587374925,-0.1708640521216115,-0.6628108638547205,-1,1,0.6736804153398088],"y":[-0.01390576951516009,0.1644008084973776,-0.1675798740901829,0.8533471780243223,-0.8822395672944368,1,-0.6855433690152226,0.6766420294961848,-1]},"edges":{"from":[1,1,1,1,2,4,2,5,3,4,3,5],"to":[2,3,4,5,6,6,7,7,8,8,9,9],"color":["#00A396","#00A396","#9189C7","#9189C7","#00A396","#9189C7","#00A396","#9189C7","#00A396","#9189C7","#00A396","#9189C7"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":300,"height":300,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-ffdd87b8ec5af4c3bf9c" style="width:300px;height:300px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-ffdd87b8ec5af4c3bf9c">{"x":{"nodes":{"label":["Attendees","Domestic","International","Academia","Industry","Domestic\n& Academia","Domestic\n& Industry","International\n& Academia","International\n& Industry"],"id":[1,2,3,4,5,6,7,8,9],"x":[-0.003371926391818159,-0.8582194521345512,0.86356954610132,0.172705587374925,-0.1708640521216115,-0.6628108638547205,-1,1,0.6736804153398088],"y":[-0.01390576951516009,0.1644008084973776,-0.1675798740901829,0.8533471780243223,-0.8822395672944368,1,-0.6855433690152226,0.6766420294961848,-1]},"edges":{"from":[1,1,1,1,2,4,2,5,3,4,3,5],"to":[2,3,4,5,6,6,7,7,8,8,9,9],"color":["#00A396","#00A396","#9189C7","#9189C7","#00A396","#9189C7","#00A396","#9189C7","#00A396","#9189C7","#00A396","#9189C7"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":300,"height":300,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-up" data-fragment-index="1">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-15_8b1f6fb7a6a348e6e3b0f4e8b3dc057c">
+<div class="cell-output-display">
+<div id="htmlwidget-2ab87043777a719f4532" style="width:600px;height:400px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-2ab87043777a719f4532">{"x":{"nodes":{"label":["Attendees","Domestic","International","Academia","Industry","Domestic\n& Academia","Domestic\n& Industry","International\n& Academia","International\n& Industry"],"image":["resources/temporal-graph-node.png","resources/temporal-graph-node.png","resources/temporal-graph-node.png","resources/temporal-graph-node.png","resources/temporal-graph-node.png","resources/temporal-graph-node.png","resources/temporal-graph-node.png","resources/temporal-graph-node.png","resources/temporal-graph-node.png"],"shape":["image","image","image","image","image","image","image","image","image"],"id":[1,2,3,4,5,6,7,8,9],"x":[-0.003371926391818159,-0.8582194521345512,0.86356954610132,0.172705587374925,-0.1708640521216115,-0.6628108638547205,-1,1,0.6736804153398088],"y":[-0.01390576951516009,0.1644008084973776,-0.1675798740901829,0.8533471780243223,-0.8822395672944368,1,-0.6855433690152226,0.6766420294961848,-1]},"edges":{"from":[1,1,1,1,2,4,2,5,3,4,3,5],"to":[2,3,4,5,6,6,7,7,8,8,9,9],"color":["#00A396","#00A396","#9189C7","#9189C7","#00A396","#9189C7","#00A396","#9189C7","#00A396","#9189C7","#00A396","#9189C7"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":600,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -1000,7 +789,7 @@
 </div>
 
 <img data-src="backgrounds/aleksandar-radovanovic-mXKXJI98aTE-unsplash.jpg" class="image-left r-stretch"></section>
-<section id="section-12" class="slide level2">
+<section id="section-10" class="slide level2">
 <h2></h2>
 <div class="columns">
 <div class="column" style="width:60%;">
@@ -1008,7 +797,7 @@
 <p>A <span class="term"><strong>directed acyclical graph</strong></span> does <strong>not</strong> require a common top and bottom series.</p>
 <p><br></p>
 <div class="fragment fade-in">
-<p>DAGs can describe more general structures than grouped coherence.</p>
+<p>What happens if we relax this definition of grouped coherence, and use the more general DAG structure.</p>
 <div class="callout callout-question callout-captioned callout-style-simple">
 <div class="callout-body">
 <div class="callout-caption">
@@ -1029,25 +818,26 @@
 </div>
 
 <img data-src="backgrounds/eilis-garvey-MskbR8VLNrA-unsplash.jpg" class="image-right r-stretch"></section>
-<section id="section-13" class="slide level2" data-auto-animate="true">
+<section id="section-11" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:40%;">
 
 </div><div class="column" style="width:60%;">
 <h3 id="unbalanced-graphs">Unbalanced graphs</h3>
-<p>What if the coherency structure had different bottom series?</p>
+<p>What if the coherency structure had <strong>different bottom series</strong>?</p>
 <p><br></p>
 <p>This often occurs in these circumstances:</p>
 <ol type="1">
 <li>Cross-temporal with series observed at <strong>different granularities</strong>.</li>
 <li>Multiple <strong>different approaches</strong> to calculating the top series.</li>
+<li>Partial coherency by <strong>‘trimming’ sparse disaggregations</strong>.</li>
 </ol>
 </div>
 </div>
 
-<img data-src="backgrounds/peter-law-2fU_lyraUOA-unsplash.jpg" class="image-left r-stretch"></section>
-<section id="section-14" class="slide level2" data-auto-animate="true">
+<img data-src="backgrounds/oriento--OBffuUekfQ-unsplash.jpg" class="image-left r-stretch"></section>
+<section id="section-12" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:40%;">
@@ -1068,10 +858,10 @@
 <div class="callout-content">
 <p>Suppose <code>Sales</code> is reported quarterly, but <code>Profit</code> and <code>Costs</code> twice yearly.</p>
 <div data-id="graphtemp">
-<div class="cell">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-16_42f3d35d5360d11dfe5ebdf564b746ff">
 <div class="cell-output-display">
-<div id="htmlwidget-a5f51d3688e31235dc79" style="width:600px;height:400px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-a5f51d3688e31235dc79">{"x":{"nodes":{"label":["Profit (Y)","Sales (Y)","-Costs (Y)","Profit (S1)","Sales (S1)","-Costs (S1)","Profit (S2)","Sales (S2)","-Costs (S2)","Sales (Q1)","Sales (Q2)","Sales (Q3)","Sales (Q4)"],"id":[1,2,3,4,5,6,7,8,9,10,11,12,13],"x":[-0.3582040390209666,-0.01049498420926265,-0.700218109949812,0.01263882916904779,0.4996034937053015,-0.3669663160980248,-0.6891066332450266,-0.420604205726013,-1,1,0.9110964283020246,-0.2857898768441832,-0.7420082841920523],"y":[0.3522192958286621,-0.007039236584347019,0.6987669242810171,0.6859429479520101,0.4041352682392674,1,-0.02160509927886167,-0.513009636272736,0.361759628924097,0.2780657174748593,0.7191427299340987,-1,-0.9216143712625707]},"edges":{"from":[1,1,4,4,7,7,1,1,2,2,3,3,5,5,8,8],"to":[2,3,5,6,8,9,4,7,5,8,6,9,10,11,12,13],"grp":[1,1,1,1,1,1,2,2,2,2,2,2,3,3,3,3],"color":["#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#5F96C2","#5F96C2","#5F96C2","#5F96C2"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20,"font":{"size":25}},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":600,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-2b524d7ec00b7062e1dd" style="width:600px;height:400px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-2b524d7ec00b7062e1dd">{"x":{"nodes":{"label":["Profit (Y)","Sales (Y)","-Costs (Y)","Profit (S1)","Sales (S1)","-Costs (S1)","Profit (S2)","Sales (S2)","-Costs (S2)","Sales (Q1)","Sales (Q2)","Sales (Q3)","Sales (Q4)"],"id":[1,2,3,4,5,6,7,8,9,10,11,12,13],"x":[-0.3582040390209666,-0.01049498420926265,-0.700218109949812,0.01263882916904779,0.4996034937053015,-0.3669663160980248,-0.6891066332450266,-0.420604205726013,-1,1,0.9110964283020246,-0.2857898768441832,-0.7420082841920523],"y":[0.3522192958286621,-0.007039236584347019,0.6987669242810171,0.6859429479520101,0.4041352682392674,1,-0.02160509927886167,-0.513009636272736,0.361759628924097,0.2780657174748593,0.7191427299340987,-1,-0.9216143712625707]},"edges":{"from":[1,1,4,4,7,7,1,1,2,2,3,3,5,5,8,8],"to":[2,3,5,6,8,9,4,7,5,8,6,9,10,11,12,13],"grp":[1,1,1,1,1,1,2,2,2,2,2,2,3,3,3,3],"color":["#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#5F96C2","#5F96C2","#5F96C2","#5F96C2"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20,"font":{"size":25}},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":600,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -1082,8 +872,8 @@
 </div>
 </div>
 
-<img data-src="backgrounds/peter-law-2fU_lyraUOA-unsplash.jpg" class="image-left r-stretch"></section>
-<section id="section-15" class="slide level2" data-auto-animate="true">
+<img data-src="backgrounds/oriento--OBffuUekfQ-unsplash.jpg" class="image-left r-stretch"></section>
+<section id="section-13" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:40%;">
@@ -1102,10 +892,10 @@
 </div>
 <div class="callout-content">
 <div data-id="graphtemp">
-<div class="cell">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-17_32eff466982ee4d797c8adb68f878021">
 <div class="cell-output-display">
-<div id="htmlwidget-bcc9db340bc84d0f5da4" style="width:600px;height:400px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-bcc9db340bc84d0f5da4">{"x":{"nodes":{"label":["Profit (Y)","Sales (Y)","-Costs (Y)","Profit (S1)","Sales (S1)","-Costs (S1)","Profit (S2)","Sales (S2)","-Costs (S2)","Sales (Q1)","Sales (Q2)","Sales (Q3)","Sales (Q4)"],"id":[1,2,3,4,5,6,7,8,9,10,11,12,13],"x":[-0.3582040390209666,-0.01049498420926265,-0.700218109949812,0.01263882916904779,0.4996034937053015,-0.3669663160980248,-0.6891066332450266,-0.420604205726013,-1,1,0.9110964283020246,-0.2857898768441832,-0.7420082841920523],"y":[0.3522192958286621,-0.007039236584347019,0.6987669242810171,0.6859429479520101,0.4041352682392674,1,-0.02160509927886167,-0.513009636272736,0.361759628924097,0.2780657174748593,0.7191427299340987,-1,-0.9216143712625707]},"edges":{"from":[1,1,4,4,7,7,1,1,2,2,3,3,5,5,8,8],"to":[2,3,5,6,8,9,4,7,5,8,6,9,10,11,12,13],"grp":[1,1,1,1,1,1,2,2,2,2,2,2,3,3,3,3],"color":["#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#5F96C2","#5F96C2","#5F96C2","#5F96C2"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20,"font":{"size":25}},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":600,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-f42cd75c4906780efe0a" style="width:600px;height:400px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-f42cd75c4906780efe0a">{"x":{"nodes":{"label":["Profit (Y)","Sales (Y)","-Costs (Y)","Profit (S1)","Sales (S1)","-Costs (S1)","Profit (S2)","Sales (S2)","-Costs (S2)","Sales (Q1)","Sales (Q2)","Sales (Q3)","Sales (Q4)"],"id":[1,2,3,4,5,6,7,8,9,10,11,12,13],"x":[-0.3582040390209666,-0.01049498420926265,-0.700218109949812,0.01263882916904779,0.4996034937053015,-0.3669663160980248,-0.6891066332450266,-0.420604205726013,-1,1,0.9110964283020246,-0.2857898768441832,-0.7420082841920523],"y":[0.3522192958286621,-0.007039236584347019,0.6987669242810171,0.6859429479520101,0.4041352682392674,1,-0.02160509927886167,-0.513009636272736,0.361759628924097,0.2780657174748593,0.7191427299340987,-1,-0.9216143712625707]},"edges":{"from":[1,1,4,4,7,7,1,1,2,2,3,3,5,5,8,8],"to":[2,3,5,6,8,9,4,7,5,8,6,9,10,11,12,13],"grp":[1,1,1,1,1,1,2,2,2,2,2,2,3,3,3,3],"color":["#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#5F96C2","#5F96C2","#5F96C2","#5F96C2"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20,"font":{"size":25}},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":600,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -1116,8 +906,8 @@
 </div>
 </div>
 
-<img data-src="backgrounds/peter-law-2fU_lyraUOA-unsplash.jpg" class="image-left r-stretch"></section>
-<section id="section-16" class="slide level2" data-auto-animate="true">
+<img data-src="backgrounds/oriento--OBffuUekfQ-unsplash.jpg" class="image-left r-stretch"></section>
+<section id="section-14" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:40%;">
@@ -1160,8 +950,8 @@
 </div>
 </div>
 
-<img data-src="backgrounds/peter-law-2fU_lyraUOA-unsplash.jpg" class="image-left r-stretch"></section>
-<section id="section-17" class="slide level2" data-auto-animate="true">
+<img data-src="backgrounds/oriento--OBffuUekfQ-unsplash.jpg" class="image-left r-stretch"></section>
+<section id="section-15" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:40%;">
@@ -1179,19 +969,19 @@
 <ul>
 <li>Income approach (I)</li>
 </ul>
-<div class="cell">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-18_ad6f7cd6a7967166d82caa111ae09b7b">
 <div class="cell-output-display">
-<div id="htmlwidget-9d56c0d8c295584f44c2" style="width:600px;height:200px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-9d56c0d8c295584f44c2">{"x":{"nodes":{"label":["GDP","Statistical\nDiscrepancy (I)","Income","Taxes"],"id":[1,2,3,4],"level":[0,1,1,1]},"edges":{"from":[1,1,1],"to":[2,3,4]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":16}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":600,"height":200,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-74c8ba1e7731f9504d26" style="width:600px;height:200px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-74c8ba1e7731f9504d26">{"x":{"nodes":{"label":["GDP","Statistical\nDiscrepancy (I)","Income","Taxes"],"id":[1,2,3,4],"level":[0,1,1,1]},"edges":{"from":[1,1,1],"to":[2,3,4]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":16}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":600,"height":200,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <ul>
 <li>Expenditure approach (E)</li>
 </ul>
-<div class="cell">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-19_ff6abc5ad18cd81ea1b2e834eb94020b">
 <div class="cell-output-display">
-<div id="htmlwidget-75086aa988ff016087c7" style="width:600px;height:200px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-75086aa988ff016087c7">{"x":{"nodes":{"label":["GDP","Statistical\nDiscrepancy (E)","-Imports","Exports","Expenses"],"id":[1,2,3,4,5],"level":[0,1,1,1,1]},"edges":{"from":[1,1,1,1],"to":[2,3,4,5]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":16}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":600,"height":200,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-83f933b82471402b4d00" style="width:600px;height:200px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-83f933b82471402b4d00">{"x":{"nodes":{"label":["GDP","Statistical\nDiscrepancy (E)","-Imports","Exports","Expenses"],"id":[1,2,3,4,5],"level":[0,1,1,1,1]},"edges":{"from":[1,1,1,1],"to":[2,3,4,5]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":16}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":600,"height":200,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -1200,8 +990,8 @@
 </div>
 </div>
 
-<img data-src="backgrounds/peter-law-2fU_lyraUOA-unsplash.jpg" class="image-left r-stretch"></section>
-<section id="section-18" class="slide level2" data-auto-animate="true">
+<img data-src="backgrounds/oriento--OBffuUekfQ-unsplash.jpg" class="image-left r-stretch"></section>
+<section id="section-16" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:40%;">
@@ -1219,10 +1009,10 @@
 <ul>
 <li>Combined approach (I &amp; E)</li>
 </ul>
-<div class="cell">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-20_a020c8798f70f800d98b9cb6a6264286">
 <div class="cell-output-display">
-<div id="htmlwidget-6fd8f5568f96dd51a945" style="width:600px;height:400px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-6fd8f5568f96dd51a945">{"x":{"nodes":{"label":["GDP","Statistical\nDiscrepancy (I)","Income","Taxes","Statistical\nDiscrepancy (E)","-Imports","Exports","Expenses"],"id":[1,2,3,4,5,6,7,8],"x":[0.0181208309193075,0.8676001522280246,-0.7349134380824285,0.3967080063204802,0.09631010583399746,-1,-0.4959156544771076,1],"y":[-0.03547901733548309,0.5473023377285768,0.6735302376679089,-1,1,-0.1882988257743036,-0.9329726046020161,-0.3413304861903519]},"edges":{"from":[1,1,1,1,1,1,1],"to":[2,3,4,5,6,7,8],"color":["#C87A8A","#C87A8A","#C87A8A","#6B9D59","#6B9D59","#6B9D59","#6B9D59"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":600,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-a58fb31876f84597848e" style="width:600px;height:400px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-a58fb31876f84597848e">{"x":{"nodes":{"label":["GDP","Statistical\nDiscrepancy (I)","Income","Taxes","Statistical\nDiscrepancy (E)","-Imports","Exports","Expenses"],"id":[1,2,3,4,5,6,7,8],"x":[0.0181208309193075,0.8676001522280246,-0.7349134380824285,0.3967080063204802,0.09631010583399746,-1,-0.4959156544771076,1],"y":[-0.03547901733548309,0.5473023377285768,0.6735302376679089,-1,1,-0.1882988257743036,-0.9329726046020161,-0.3413304861903519]},"edges":{"from":[1,1,1,1,1,1,1],"to":[2,3,4,5,6,7,8],"color":["#C87A8A","#C87A8A","#C87A8A","#6B9D59","#6B9D59","#6B9D59","#6B9D59"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":600,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -1231,28 +1021,54 @@
 </div>
 </div>
 
-<img data-src="backgrounds/peter-law-2fU_lyraUOA-unsplash.jpg" class="image-left r-stretch"></section>
-<section id="section-19" class="slide level2" data-auto-animate="true">
+<img data-src="backgrounds/oriento--OBffuUekfQ-unsplash.jpg" class="image-left r-stretch"></section>
+<section id="section-17" class="slide level2 fragment-remove" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
-<div class="column" style="width:60%;">
-<h3 id="disjoint-graphs">Disjoint graphs</h3>
-<div class="callout callout-question callout-captioned callout-style-simple">
+<div class="column" style="width:40%;">
+
+</div><div class="column" style="width:60%;">
+<ol start="3" type="1">
+<li>Partial coherency by <strong>‘trimming’ sparse disaggregations</strong>.</li>
+</ol>
+<div class="callout callout-tip callout-style-simple">
 <div class="callout-body">
-<div class="callout-caption">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>What does having different top series mean?</strong></p>
-</div>
 <div class="callout-content">
-<div class="fragment fade-in">
-<p>There must be multiple top series.</p>
-<p>This often happens if the graph is <span class="term"><strong>disjoint</strong></span>.</p>
+<p>If the bottom level is too sparse, it is <strong>more complicated</strong> to model and reconciliation can <strong>worsen forecast accuracy</strong>.</p>
+<!-- Graph coherency allows us to ignore our problems (reconciling count data models) by trimming the leaf nodes of the graph. -->
+<div class="fragment fade-out" data-fragment-index="1">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-21_0d35fa5493f21133ac541ad00c1172b6">
+<div class="cell-output-display">
+<div id="htmlwidget-19f1b135c6b1ef39d773" style="width:600px;height:400px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-19f1b135c6b1ef39d773">{"x":{"nodes":{"label":["Attendees","Domestic","International","Academia","Industry","Domestic\n& Academia","Domestic\n& Industry","International\n& Academia","International\n& Industry"],"id":[1,2,3,4,5,6,7,8,9],"x":[-0.003371926391818159,-0.8582194521345512,0.86356954610132,0.172705587374925,-0.1708640521216115,-0.6628108638547205,-1,1,0.6736804153398088],"y":[-0.01390576951516009,0.1644008084973776,-0.1675798740901829,0.8533471780243223,-0.8822395672944368,1,-0.6855433690152226,0.6766420294961848,-1]},"edges":{"from":[1,1,1,1,2,4,2,5,3,4,3,5],"to":[2,3,4,5,6,6,7,7,8,8,9,9],"color":["#C87A8A","#C87A8A","#6B9D59","#6B9D59","#C87A8A","#6B9D59","#C87A8A","#6B9D59","#C87A8A","#6B9D59","#C87A8A","#6B9D59"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":600,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+<div class="fragment fade-up" data-fragment-index="1">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-22_9f3b49ae81c65fcc261eaaec53769441">
+<div class="cell-output-display">
+<div id="htmlwidget-798f4ad75c95f15f8b74" style="width:600px;height:400px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-798f4ad75c95f15f8b74">{"x":{"nodes":{"label":["Attendees","Domestic","International","Academia","Industry"],"id":[1,2,3,4,5],"x":[-0.001759247510430439,0.4649221558329919,-1,1,-0.4701575758691139],"y":[-0.0004033440696582513,1,0.468617046048023,-0.4710768300799481,-1]},"edges":{"from":[1,1,1,1],"to":[2,3,4,5],"color":["#C87A8A","#C87A8A","#6B9D59","#6B9D59"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":600,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
 </div>
+</div>
+</div>
+</div>
+</div>
+
+<img data-src="backgrounds/oriento--OBffuUekfQ-unsplash.jpg" class="image-left r-stretch"></section>
+<section id="section-18" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"></h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<h3 id="incomplete-graphs">Incomplete graphs</h3>
+<p>What if the coherency structure doesn’t completely aggregate, so that there are <strong>multiple top series</strong>.</p>
+<p><br></p>
 <div class="fragment fade-in">
 <p>This can occur for many reasons:</p>
 <ol type="1">
@@ -1264,7 +1080,7 @@
 </div>
 
 <img data-src="backgrounds/firosnv-photography-Rr3B0LH7W3k-unsplash.jpg" class="image-right r-stretch"></section>
-<section id="section-20" class="slide level2" data-auto-animate="true">
+<section id="section-19" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:60%;">
@@ -1280,10 +1096,10 @@
 <p>It makes no sense to aggregate folds of cross-validation.</p>
 <div class="fragment fade-in">
 <p>A suitable DAG for cross-validated hierarchies is</p>
-<div class="cell">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-23_b0f9d0b6419b1f998f23a0e00c917617">
 <div class="cell-output-display">
-<div id="htmlwidget-eee2732ca6f81adc125b" style="width:600px;height:400px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-eee2732ca6f81adc125b">{"x":{"nodes":{"label":["Attendees\n(fold 1)","Academic\n(fold 1)","Industry\n(fold 1)","Attendees\n(fold 2)","Academic\n(fold 2)","Industry\n(fold 2)","Attendees\n(fold 3)","Academic\n(fold 3)","Industry\n(fold 3)"],"id":[1,2,3,4,5,6,7,8,9],"x":[-0.7771115886284494,-1,-0.5479317420191581,0.04555610562827783,0.5416865832808138,-0.4511010814451824,0.7336814933590186,0.4621687484879951,1],"y":[0.4508815641554542,-0.04886791008397484,0.9417089317630387,-0.9777716560130811,-0.9451423221379904,-1,0.5353849818406153,1,0.06400782226108581]},"edges":{"from":[1,1,4,4,7,7],"to":[2,3,5,6,8,9]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":600,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-9707c2ad20a8a780990a" style="width:600px;height:400px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-9707c2ad20a8a780990a">{"x":{"nodes":{"label":["Attendees\n(fold 1)","Academic\n(fold 1)","Industry\n(fold 1)","Attendees\n(fold 2)","Academic\n(fold 2)","Industry\n(fold 2)","Attendees\n(fold 3)","Academic\n(fold 3)","Industry\n(fold 3)"],"id":[1,2,3,4,5,6,7,8,9],"x":[-0.7771115886284494,-1,-0.5479317420191581,0.04555610562827783,0.5416865832808138,-0.4511010814451824,0.7336814933590186,0.4621687484879951,1],"y":[0.4508815641554542,-0.04886791008397484,0.9417089317630387,-0.9777716560130811,-0.9451423221379904,-1,0.5353849818406153,1,0.06400782226108581]},"edges":{"from":[1,1,4,4,7,7],"to":[2,3,5,6,8,9]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":600,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -1297,35 +1113,565 @@
 </div>
 
 <img data-src="backgrounds/firosnv-photography-Rr3B0LH7W3k-unsplash.jpg" class="image-right r-stretch"></section>
-<section id="section-21" class="slide level2">
-<h2></h2>
+<section id="section-20" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:60%;">
-<h3 id="graph-coherence-1">Graph coherence</h3>
+<ol start="2" type="1">
+<li>Partial/local coherency</li>
+</ol>
 <div class="callout callout-tip callout-captioned callout-style-simple">
 <div class="callout-body">
 <div class="callout-caption">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>DAGs are reasonable (and very useful!)</strong></p>
+<p><strong>Motivated by discussion with Zeynepz yesterday</strong></p>
 </div>
 <div class="callout-content">
-<p>Graph coherence allows us to describe more general coherence structures, including</p>
-<ul>
-<li>Disjoint graphs (e.g.&nbsp;cross-validation)</li>
-<li>Partial coherency (simpler reconciliation)</li>
-<li>Complex unbalanced graphs</li>
-<li>Mixed temporal granularity data</li>
-</ul>
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-24_293fe21dc47d591d8f668eb8ca3e8d77">
+<div class="cell-output-display">
+<div id="htmlwidget-d297b4b060ed03696609" style="width:600px;height:400px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-d297b4b060ed03696609">{"x":{"nodes":{"label":["Facebook","Instagram","WhatsApp","Messenger","Oculus","","","","",""],"shape":["triangle","triangle","triangle","triangle","triangle","circle","circle","circle","circle","circle"],"id":[1,2,3,4,5,6,7,8,9,10],"x":[1,0.8090169943749475,0.3090169943749475,-0.3090169943749473,-0.8090169943749473,-1,-0.8090169943749476,-0.3090169943749476,0.3090169943749472,0.8090169943749475],"y":[0,0.6180339887498949,1,1,0.6180339887498951,2.220446049250313e-16,-0.6180339887498947,-0.9999999999999999,-1,-0.6180339887498951]},"edges":{"from":[1,1,1,2,2,3,3,4,4,5],"to":[6,7,8,9,10,6,7,8,9,10]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":600,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 
-<img data-src="backgrounds/eilis-garvey-MskbR8VLNrA-unsplash.jpg" class="image-right r-stretch"></section>
-<section id="section-22" class="slide level2">
+<img data-src="backgrounds/PXL_20230908_083157452.jpg" class="image-right r-stretch"></section>
+<section id="section-21" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"></h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ol start="2" type="1">
+<li>Partial/local coherency</li>
+</ol>
+<div class="callout callout-tip callout-captioned callout-style-simple">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Adding Meta as the single parent results in a hierarchy</strong></p>
+</div>
+<div class="callout-content">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-25_31f756a302ada18725e1b2aa265ca5b2">
+<div class="cell-output-display">
+<div id="htmlwidget-7e7bbb494f761957a0e7" style="width:600px;height:400px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-7e7bbb494f761957a0e7">{"x":{"nodes":{"label":["Facebook","Instagram","WhatsApp","Messenger","Oculus","","","","","","Meta"],"shape":["triangle","triangle","triangle","triangle","triangle","circle","circle","circle","circle","circle","star"],"id":[1,2,3,4,5,6,7,8,9,10,11],"x":[-0.571124951733712,0.6896991221030009,-0.5503295009007478,0.146553883693229,0.5537200131579443,-1,-0.9089508891878479,-0.3634786477218064,0.6637360306906206,1,0.06168987497947809],"y":[0.02938562779538478,-0.01784534055795728,-0.6978283133735672,0.8416319207142804,-1,-0.1864096742582104,-0.866363405872039,1,0.9408184169156235,-0.7967512930882792,-0.2484499166846748]},"edges":{"from":[1,1,1,2,2,3,3,4,4,5,11,11,11,11,11],"to":[6,7,8,9,10,6,7,8,9,10,1,2,3,4,5]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":600,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p><em>Note that this isn’t a polytree, due to common/shared leafs.</em></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<img data-src="backgrounds/PXL_20230908_083157452.jpg" class="image-right r-stretch"></section>
+<section id="section-22" class="slide level2 fragment-remove">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+
+</div><div class="column" style="width:60%;">
+<h3 id="related-work">Related work</h3>
+<p>General linearly constrained time series <span class="citation" data-cites="girolimetto2023point">(<a href="#/references" role="doc-biblioref" onclick="">Girolimetto and Di Fonzo 2023</a>)</span></p>
+<div class="callout callout-tip callout-captioned callout-style-simple">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Generalisation from zero-constrained representation</strong></p>
+</div>
+<div class="callout-content">
+<div class="fragment fade-out" data-fragment-index="1">
+<p><img data-src="resources/dani-matrix-constraint.png"></p>
+</div>
+<div class="fragment fade-up" data-fragment-index="1">
+<p><img data-src="resources/dani-graph-constraint.png"></p>
+</div>
+<div class="fragment fade-up" data-fragment-index="2">
+<p>For linear reconciliation, both graph coherence and ‘general linearly constrained’ coherence are equivalent.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><img data-src="backgrounds/eilis-garvey-MskbR8VLNrA-unsplash.jpg" class="image-left"></p>
+</section>
+<section id="section-23" class="slide level2 fragment-remove">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+
+</div><div class="column" style="width:60%;">
+<h3 id="implementation-in-fable">Implementation in fable</h3>
+<p>All currently experimental, but functional. Code on GitHub in various branches.</p>
+<div class="fragment fade-out" data-fragment-index="3">
+<div class="callout callout-tip callout-captioned callout-style-simple">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Useful functions</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>Create aggregates from bottom series with <code>aggregate_key()</code> <br> (and someday <code>aggregate_index()</code> for temporal)</li>
+<li><span class="fragment" data-fragment-index="1">Or get artisanal with <code>agg_vec()</code> and <code>graph_vec()</code> for complex aggregation structures and graphs.</span></li>
+<li><span class="fragment" data-fragment-index="2">Add coherency constraints to models/forecasts with <code>reconcile()</code> and <code>min_trace()</code></span></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-up" data-fragment-index="3">
+<div class="callout callout-warning callout-captioned callout-style-simple">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Planned functionality</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>Tools for identifying sub-graphs for exploring series</li>
+<li><span class="fragment" data-fragment-index="4">Tools for changing the graph without removing data</span></li>
+<li><span class="fragment" data-fragment-index="5">Tools for validating operations which change the graph</span></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<img data-src="backgrounds/sander-weeteling-KABfjuSOx74-unsplash.jpg" class="image-left r-stretch"></section>
+<section id="section-24" class="slide level2" data-auto-animate="TRUE">
+<h2 data-id="quarto-animate-title"></h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+
+</div><div class="column" style="width:60%;">
+<h3 id="examples-with-fable">Examples with fable</h3>
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-26_0e5eccbb3d743738157aacf1430b21b6">
+
+</div>
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-27_5b5e170826a1adeef126e59512819ae6">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb1-1" class="hljs-ln-code"><a href="#cb1-1"></a><span class="fu">library</span>(tsibble)</span>
+<span id="cb1-2" class="hljs-ln-code"><a href="#cb1-2"></a><span class="fu">library</span>(fable)</span>
+<span id="cb1-3" class="hljs-ln-code"><a href="#cb1-3"></a>tourism</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tsibble: 24,320 x 5 [1Q]
+# Key:       Region, State, Purpose [304]
+   Quarter Region   State           Purpose  Trips
+     &lt;qtr&gt; &lt;chr&gt;    &lt;chr&gt;           &lt;chr&gt;    &lt;dbl&gt;
+ 1 1998 Q1 Adelaide South Australia Business  135.
+ 2 1998 Q2 Adelaide South Australia Business  110.
+ 3 1998 Q3 Adelaide South Australia Business  166.
+ 4 1998 Q4 Adelaide South Australia Business  127.
+ 5 1999 Q1 Adelaide South Australia Business  137.
+ 6 1999 Q2 Adelaide South Australia Business  200.
+ 7 1999 Q3 Adelaide South Australia Business  169.
+ 8 1999 Q4 Adelaide South Australia Business  134.
+ 9 2000 Q1 Adelaide South Australia Business  154.
+10 2000 Q2 Adelaide South Australia Business  169.
+# i 24,310 more rows</code></pre>
+</div>
+</div>
+</div>
+</div>
+
+<img data-src="backgrounds/sander-weeteling-KABfjuSOx74-unsplash.jpg" class="image-left r-stretch"></section>
+<section id="section-25" class="slide level2" data-auto-animate="TRUE">
+<h2 data-id="quarto-animate-title"></h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+
+</div><div class="column" style="width:60%;">
+<h3 id="examples-with-fable-1">Examples with fable</h3>
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-28_20ead00fad04246691deb4db682bcdbc">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb3-1" class="hljs-ln-code"><a href="#cb3-1"></a>tourism <span class="sc">|&gt;</span> </span>
+<span id="cb3-2" class="hljs-ln-code"><a href="#cb3-2"></a>  <span class="fu">aggregate_key</span>(</span>
+<span id="cb3-3" class="hljs-ln-code"><a href="#cb3-3"></a>    Purpose <span class="sc">*</span> (State <span class="sc">/</span> Region),</span>
+<span id="cb3-4" class="hljs-ln-code"><a href="#cb3-4"></a>    <span class="at">Trips =</span> <span class="fu">sum</span>(Trips)</span>
+<span id="cb3-5" class="hljs-ln-code"><a href="#cb3-5"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tsibble: 34,000 x 5 [1Q]
+# Key:       Purpose, State, Region [425]
+   Quarter Purpose      State        Region        Trips
+     &lt;qtr&gt; &lt;chr*&gt;       &lt;chr*&gt;       &lt;chr*&gt;        &lt;dbl&gt;
+ 1 1998 Q1 &lt;aggregated&gt; &lt;aggregated&gt; &lt;aggregated&gt; 23182.
+ 2 1998 Q2 &lt;aggregated&gt; &lt;aggregated&gt; &lt;aggregated&gt; 20323.
+ 3 1998 Q3 &lt;aggregated&gt; &lt;aggregated&gt; &lt;aggregated&gt; 19827.
+ 4 1998 Q4 &lt;aggregated&gt; &lt;aggregated&gt; &lt;aggregated&gt; 20830.
+ 5 1999 Q1 &lt;aggregated&gt; &lt;aggregated&gt; &lt;aggregated&gt; 22087.
+ 6 1999 Q2 &lt;aggregated&gt; &lt;aggregated&gt; &lt;aggregated&gt; 21458.
+ 7 1999 Q3 &lt;aggregated&gt; &lt;aggregated&gt; &lt;aggregated&gt; 19914.
+ 8 1999 Q4 &lt;aggregated&gt; &lt;aggregated&gt; &lt;aggregated&gt; 20028.
+ 9 2000 Q1 &lt;aggregated&gt; &lt;aggregated&gt; &lt;aggregated&gt; 22339.
+10 2000 Q2 &lt;aggregated&gt; &lt;aggregated&gt; &lt;aggregated&gt; 19941.
+# i 33,990 more rows</code></pre>
+</div>
+</div>
+</div>
+</div>
+
+<img data-src="backgrounds/sander-weeteling-KABfjuSOx74-unsplash.jpg" class="image-left r-stretch"></section>
+<section id="section-26" class="slide level2" data-auto-animate="TRUE">
+<h2 data-id="quarto-animate-title"></h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+
+</div><div class="column" style="width:60%;">
+<h3 id="examples-with-fable-2">Examples with fable</h3>
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-29_1eba1c3ede467fa4a9399d2e34bfa2f4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb5-1" class="hljs-ln-code"><a href="#cb5-1"></a>tourism <span class="sc">|&gt;</span> </span>
+<span id="cb5-2" class="hljs-ln-code"><a href="#cb5-2"></a>  <span class="fu">aggregate_key</span>(</span>
+<span id="cb5-3" class="hljs-ln-code"><a href="#cb5-3"></a>    Purpose <span class="sc">*</span> (State <span class="sc">/</span> Region),</span>
+<span id="cb5-4" class="hljs-ln-code"><a href="#cb5-4"></a>    <span class="at">Trips =</span> <span class="fu">sum</span>(Trips)</span>
+<span id="cb5-5" class="hljs-ln-code"><a href="#cb5-5"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb5-6" class="hljs-ln-code"><a href="#cb5-6"></a>  <span class="fu">key_data</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 425 x 4
+   Purpose  State           Region                 .rows
+   &lt;chr*&gt;   &lt;chr*&gt;          &lt;chr*&gt;                 &lt;lis&gt;
+ 1 Business ACT             Canberra                [80]
+ 2 Business ACT             &lt;aggregated&gt;            [80]
+ 3 Business New South Wales Blue Mountains          [80]
+ 4 Business New South Wales Capital Country         [80]
+ 5 Business New South Wales Central Coast           [80]
+ 6 Business New South Wales Central NSW             [80]
+ 7 Business New South Wales Hunter                  [80]
+ 8 Business New South Wales New England North West  [80]
+ 9 Business New South Wales North Coast NSW         [80]
+10 Business New South Wales Outback NSW             [80]
+# i 415 more rows</code></pre>
+</div>
+</div>
+</div>
+</div>
+
+<img data-src="backgrounds/sander-weeteling-KABfjuSOx74-unsplash.jpg" class="image-left r-stretch"></section>
+<section id="section-27" class="slide level2" data-auto-animate="TRUE">
+<h2 data-id="quarto-animate-title"></h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+
+</div><div class="column" style="width:60%;">
+<h3 id="examples-with-fable-3">Examples with fable</h3>
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-30_a22834bdc3148a45884def730f129a3a">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb7-1" class="hljs-ln-code"><a href="#cb7-1"></a>tourism <span class="sc">|&gt;</span> </span>
+<span id="cb7-2" class="hljs-ln-code"><a href="#cb7-2"></a>  <span class="fu">aggregate_key</span>(</span>
+<span id="cb7-3" class="hljs-ln-code"><a href="#cb7-3"></a>    Purpose <span class="sc">*</span> State,</span>
+<span id="cb7-4" class="hljs-ln-code"><a href="#cb7-4"></a>    <span class="at">Trips =</span> <span class="fu">sum</span>(Trips)</span>
+<span id="cb7-5" class="hljs-ln-code"><a href="#cb7-5"></a>  ) <span class="sc">|&gt;</span>  </span>
+<span id="cb7-6" class="hljs-ln-code"><a href="#cb7-6"></a>  <span class="fu">key_data</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 45 x 3
+   Purpose      State                    .rows
+   &lt;chr*&gt;       &lt;chr*&gt;             &lt;list&lt;int&gt;&gt;
+ 1 Business     ACT                       [80]
+ 2 Business     New South Wales           [80]
+ 3 Business     Northern Territory        [80]
+ 4 Business     Queensland                [80]
+ 5 Business     South Australia           [80]
+ 6 Business     Tasmania                  [80]
+ 7 Business     Victoria                  [80]
+ 8 Business     Western Australia         [80]
+ 9 Business     &lt;aggregated&gt;              [80]
+10 Holiday      ACT                       [80]
+11 Holiday      New South Wales           [80]
+12 Holiday      Northern Territory        [80]
+13 Holiday      Queensland                [80]
+14 Holiday      South Australia           [80]
+15 Holiday      Tasmania                  [80]
+16 Holiday      Victoria                  [80]
+17 Holiday      Western Australia         [80]
+18 Holiday      &lt;aggregated&gt;              [80]
+19 Other        ACT                       [80]
+20 Other        New South Wales           [80]
+21 Other        Northern Territory        [80]
+22 Other        Queensland                [80]
+23 Other        South Australia           [80]
+24 Other        Tasmania                  [80]
+25 Other        Victoria                  [80]
+26 Other        Western Australia         [80]
+27 Other        &lt;aggregated&gt;              [80]
+28 Visiting     ACT                       [80]
+29 Visiting     New South Wales           [80]
+30 Visiting     Northern Territory        [80]
+31 Visiting     Queensland                [80]
+32 Visiting     South Australia           [80]
+33 Visiting     Tasmania                  [80]
+34 Visiting     Victoria                  [80]
+35 Visiting     Western Australia         [80]
+36 Visiting     &lt;aggregated&gt;              [80]
+37 &lt;aggregated&gt; ACT                       [80]
+38 &lt;aggregated&gt; New South Wales           [80]
+39 &lt;aggregated&gt; Northern Territory        [80]
+40 &lt;aggregated&gt; Queensland                [80]
+41 &lt;aggregated&gt; South Australia           [80]
+42 &lt;aggregated&gt; Tasmania                  [80]
+43 &lt;aggregated&gt; Victoria                  [80]
+44 &lt;aggregated&gt; Western Australia         [80]
+45 &lt;aggregated&gt; &lt;aggregated&gt;              [80]</code></pre>
+</div>
+</div>
+</div>
+</div>
+
+<img data-src="backgrounds/sander-weeteling-KABfjuSOx74-unsplash.jpg" class="image-left r-stretch"></section>
+<section id="section-28" class="slide level2" data-auto-animate="TRUE">
+<h2 data-id="quarto-animate-title"></h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+
+</div><div class="column" style="width:60%;">
+<h3 id="examples-with-fable-4">Examples with fable</h3>
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-31_7321e48f3cc3a8c17cc6c6f6a50caf1c">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb9-1" class="hljs-ln-code"><a href="#cb9-1"></a>tourism <span class="sc">|&gt;</span> </span>
+<span id="cb9-2" class="hljs-ln-code"><a href="#cb9-2"></a>  <span class="fu">aggregate_key</span>(</span>
+<span id="cb9-3" class="hljs-ln-code"><a href="#cb9-3"></a>    Purpose <span class="sc">:</span> State,</span>
+<span id="cb9-4" class="hljs-ln-code"><a href="#cb9-4"></a>    <span class="at">Trips =</span> <span class="fu">sum</span>(Trips)</span>
+<span id="cb9-5" class="hljs-ln-code"><a href="#cb9-5"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb9-6" class="hljs-ln-code"><a href="#cb9-6"></a>  <span class="fu">key_data</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 33 x 3
+   Purpose      State                    .rows
+   &lt;chr*&gt;       &lt;chr*&gt;             &lt;list&lt;int&gt;&gt;
+ 1 Business     ACT                       [80]
+ 2 Business     New South Wales           [80]
+ 3 Business     Northern Territory        [80]
+ 4 Business     Queensland                [80]
+ 5 Business     South Australia           [80]
+ 6 Business     Tasmania                  [80]
+ 7 Business     Victoria                  [80]
+ 8 Business     Western Australia         [80]
+ 9 Holiday      ACT                       [80]
+10 Holiday      New South Wales           [80]
+11 Holiday      Northern Territory        [80]
+12 Holiday      Queensland                [80]
+13 Holiday      South Australia           [80]
+14 Holiday      Tasmania                  [80]
+15 Holiday      Victoria                  [80]
+16 Holiday      Western Australia         [80]
+17 Other        ACT                       [80]
+18 Other        New South Wales           [80]
+19 Other        Northern Territory        [80]
+20 Other        Queensland                [80]
+21 Other        South Australia           [80]
+22 Other        Tasmania                  [80]
+23 Other        Victoria                  [80]
+24 Other        Western Australia         [80]
+25 Visiting     ACT                       [80]
+26 Visiting     New South Wales           [80]
+27 Visiting     Northern Territory        [80]
+28 Visiting     Queensland                [80]
+29 Visiting     South Australia           [80]
+30 Visiting     Tasmania                  [80]
+31 Visiting     Victoria                  [80]
+32 Visiting     Western Australia         [80]
+33 &lt;aggregated&gt; &lt;aggregated&gt;              [80]</code></pre>
+</div>
+</div>
+</div>
+</div>
+
+<img data-src="backgrounds/sander-weeteling-KABfjuSOx74-unsplash.jpg" class="image-left r-stretch"></section>
+<section id="section-29" class="slide level2" data-auto-animate="TRUE">
+<h2 data-id="quarto-animate-title"></h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+
+</div><div class="column" style="width:60%;">
+<h3 id="examples-with-fable-5">Examples with fable</h3>
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-32_880a9a9ee40ba4314c6cc3e0476ac176">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb11-1" class="hljs-ln-code"><a href="#cb11-1"></a>tourism <span class="sc">|&gt;</span> </span>
+<span id="cb11-2" class="hljs-ln-code"><a href="#cb11-2"></a>  <span class="fu">aggregate_key</span>(</span>
+<span id="cb11-3" class="hljs-ln-code"><a href="#cb11-3"></a>    Purpose <span class="sc">+</span> State,</span>
+<span id="cb11-4" class="hljs-ln-code"><a href="#cb11-4"></a>    <span class="at">Trips =</span> <span class="fu">sum</span>(Trips)</span>
+<span id="cb11-5" class="hljs-ln-code"><a href="#cb11-5"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb11-6" class="hljs-ln-code"><a href="#cb11-6"></a>  <span class="fu">key_data</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 13 x 3
+   Purpose      State                    .rows
+   &lt;chr*&gt;       &lt;chr*&gt;             &lt;list&lt;int&gt;&gt;
+ 1 Business     &lt;aggregated&gt;              [80]
+ 2 Holiday      &lt;aggregated&gt;              [80]
+ 3 Other        &lt;aggregated&gt;              [80]
+ 4 Visiting     &lt;aggregated&gt;              [80]
+ 5 &lt;aggregated&gt; ACT                       [80]
+ 6 &lt;aggregated&gt; New South Wales           [80]
+ 7 &lt;aggregated&gt; Northern Territory        [80]
+ 8 &lt;aggregated&gt; Queensland                [80]
+ 9 &lt;aggregated&gt; South Australia           [80]
+10 &lt;aggregated&gt; Tasmania                  [80]
+11 &lt;aggregated&gt; Victoria                  [80]
+12 &lt;aggregated&gt; Western Australia         [80]
+13 &lt;aggregated&gt; &lt;aggregated&gt;              [80]</code></pre>
+</div>
+</div>
+</div>
+</div>
+
+<img data-src="backgrounds/sander-weeteling-KABfjuSOx74-unsplash.jpg" class="image-left r-stretch"></section>
+<section id="section-30" class="slide level2" data-auto-animate="TRUE">
+<h2 data-id="quarto-animate-title"></h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+
+</div><div class="column" style="width:60%;">
+<h3 id="examples-with-fable-6">Examples with fable</h3>
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-33_a0e35d8005bf1d8df4fd7437e9816784">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb13-1" class="hljs-ln-code"><a href="#cb13-1"></a>tourism <span class="sc">|&gt;</span> </span>
+<span id="cb13-2" class="hljs-ln-code"><a href="#cb13-2"></a>  <span class="fu">aggregate_key</span>(</span>
+<span id="cb13-3" class="hljs-ln-code"><a href="#cb13-3"></a>    <span class="dv">0</span> <span class="sc">+</span> Purpose <span class="sc">+</span> State,</span>
+<span id="cb13-4" class="hljs-ln-code"><a href="#cb13-4"></a>    <span class="at">Trips =</span> <span class="fu">sum</span>(Trips)</span>
+<span id="cb13-5" class="hljs-ln-code"><a href="#cb13-5"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb13-6" class="hljs-ln-code"><a href="#cb13-6"></a>  <span class="fu">key_data</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 x 3
+   Purpose      State                    .rows
+   &lt;chr*&gt;       &lt;chr*&gt;             &lt;list&lt;int&gt;&gt;
+ 1 Business     &lt;aggregated&gt;              [80]
+ 2 Holiday      &lt;aggregated&gt;              [80]
+ 3 Other        &lt;aggregated&gt;              [80]
+ 4 Visiting     &lt;aggregated&gt;              [80]
+ 5 &lt;aggregated&gt; ACT                       [80]
+ 6 &lt;aggregated&gt; New South Wales           [80]
+ 7 &lt;aggregated&gt; Northern Territory        [80]
+ 8 &lt;aggregated&gt; Queensland                [80]
+ 9 &lt;aggregated&gt; South Australia           [80]
+10 &lt;aggregated&gt; Tasmania                  [80]
+11 &lt;aggregated&gt; Victoria                  [80]
+12 &lt;aggregated&gt; Western Australia         [80]</code></pre>
+</div>
+</div>
+</div>
+</div>
+
+<img data-src="backgrounds/sander-weeteling-KABfjuSOx74-unsplash.jpg" class="image-left r-stretch"></section>
+<section id="section-31" class="slide level2" data-auto-animate="TRUE">
+<h2 data-id="quarto-animate-title"></h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+
+</div><div class="column" style="width:60%;">
+<h3 id="examples-with-fable-7">Examples with fable</h3>
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-34_bac141ad92ed0a640fb560556140269f">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb15-1" class="hljs-ln-code"><a href="#cb15-1"></a>tourism <span class="sc">|&gt;</span> </span>
+<span id="cb15-2" class="hljs-ln-code"><a href="#cb15-2"></a>  <span class="fu">aggregate_key</span>(</span>
+<span id="cb15-3" class="hljs-ln-code"><a href="#cb15-3"></a>    Purpose,</span>
+<span id="cb15-4" class="hljs-ln-code"><a href="#cb15-4"></a>    <span class="at">Trips =</span> <span class="fu">sum</span>(Trips)</span>
+<span id="cb15-5" class="hljs-ln-code"><a href="#cb15-5"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb15-6" class="hljs-ln-code"><a href="#cb15-6"></a>  <span class="fu">stretch_tsibble</span>(<span class="at">.step =</span> <span class="dv">4</span>, <span class="at">.init =</span> <span class="dv">60</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb15-7" class="hljs-ln-code"><a href="#cb15-7"></a>  <span class="fu">key_data</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 30 x 3
+     .id Purpose            .rows
+   &lt;int&gt; &lt;chr*&gt;       &lt;list&lt;int&gt;&gt;
+ 1     1 Business            [60]
+ 2     1 Holiday             [60]
+ 3     1 Other               [60]
+ 4     1 Visiting            [60]
+ 5     1 &lt;aggregated&gt;        [60]
+ 6     2 Business            [64]
+ 7     2 Holiday             [64]
+ 8     2 Other               [64]
+ 9     2 Visiting            [64]
+10     2 &lt;aggregated&gt;        [64]
+11     3 Business            [68]
+12     3 Holiday             [68]
+13     3 Other               [68]
+14     3 Visiting            [68]
+15     3 &lt;aggregated&gt;        [68]
+16     4 Business            [72]
+17     4 Holiday             [72]
+18     4 Other               [72]
+19     4 Visiting            [72]
+20     4 &lt;aggregated&gt;        [72]
+21     5 Business            [76]
+22     5 Holiday             [76]
+23     5 Other               [76]
+24     5 Visiting            [76]
+25     5 &lt;aggregated&gt;        [76]
+26     6 Business            [80]
+27     6 Holiday             [80]
+28     6 Other               [80]
+29     6 Visiting            [80]
+30     6 &lt;aggregated&gt;        [80]</code></pre>
+</div>
+</div>
+</div>
+</div>
+
+<img data-src="backgrounds/sander-weeteling-KABfjuSOx74-unsplash.jpg" class="image-left r-stretch"></section>
+<section id="section-32" class="slide level2" data-auto-animate="TRUE">
+<h2 data-id="quarto-animate-title"></h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+
+</div><div class="column" style="width:60%;">
+<h3 id="examples-with-fable-8">Examples with fable</h3>
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-35_7be74170da19e3c1a466ef0548d965f8">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb17-1" class="hljs-ln-code"><a href="#cb17-1"></a>tourism <span class="sc">|&gt;</span> </span>
+<span id="cb17-2" class="hljs-ln-code"><a href="#cb17-2"></a>  <span class="fu">aggregate_key</span>(</span>
+<span id="cb17-3" class="hljs-ln-code"><a href="#cb17-3"></a>    Purpose,</span>
+<span id="cb17-4" class="hljs-ln-code"><a href="#cb17-4"></a>    <span class="at">Trips =</span> <span class="fu">sum</span>(Trips)</span>
+<span id="cb17-5" class="hljs-ln-code"><a href="#cb17-5"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb17-6" class="hljs-ln-code"><a href="#cb17-6"></a>  <span class="fu">stretch_tsibble</span>(<span class="at">.step =</span> <span class="dv">4</span>, <span class="at">.init =</span> <span class="dv">60</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb17-7" class="hljs-ln-code"><a href="#cb17-7"></a>  <span class="fu">model</span>(<span class="at">ets =</span> <span class="fu">ETS</span>(Trips)) <span class="sc">|&gt;</span> </span>
+<span id="cb17-8" class="hljs-ln-code"><a href="#cb17-8"></a>  <span class="fu">reconcile</span>(<span class="at">ets_coherent =</span> <span class="fu">min_trace</span>(ets)) <span class="sc">|&gt;</span> </span>
+<span id="cb17-9" class="hljs-ln-code"><a href="#cb17-9"></a>  <span class="fu">forecast</span>(<span class="at">h =</span> <span class="st">"1 year"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A fable: 240 x 6 [1Q]
+# Key:     .id, Purpose, .model [60]
+     .id Purpose  .model       Quarter            Trips
+   &lt;int&gt; &lt;chr*&gt;   &lt;chr&gt;          &lt;qtr&gt;           &lt;dist&gt;
+ 1     1 Business ets          2013 Q1   N(3135, 46032)
+ 2     1 Business ets          2013 Q2   N(3832, 73712)
+ 3     1 Business ets          2013 Q3   N(4158, 93320)
+ 4     1 Business ets          2013 Q4   N(3781, 88006)
+ 5     1 Business ets_coherent 2013 Q1   N(3159, 45373)
+ 6     1 Business ets_coherent 2013 Q2   N(3848, 69353)
+ 7     1 Business ets_coherent 2013 Q3   N(4177, 86871)
+ 8     1 Business ets_coherent 2013 Q4   N(3795, 83437)
+ 9     1 Holiday  ets          2013 Q1 N(10442, 211377)
+10     1 Holiday  ets          2013 Q2  N(8698, 146661)
+# i 230 more rows
+# i 1 more variable: .mean &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+
+<img data-src="backgrounds/sander-weeteling-KABfjuSOx74-unsplash.jpg" class="image-left r-stretch"></section>
+<section id="section-33" class="slide level2" data-auto-animate="TRUE">
+<h2 data-id="quarto-animate-title"></h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+
+</div><div class="column" style="width:60%;">
+<h3 id="examples-with-fable-9">Examples with fable</h3>
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-36_930380e9349c4e3dd3ceff9b92ea07cd">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-36-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<p><img data-src="backgrounds/sander-weeteling-KABfjuSOx74-unsplash.jpg" class="image-left"></p>
+</section>
+<section id="section-34" class="slide level2">
 <h2></h2>
 <div class="columns">
 <div class="column" style="width:60%;">
@@ -1359,7 +1705,7 @@
 </div>
 <p><img data-src="backgrounds/meric-dagli-7NBO76G5JsE-unsplash.jpg" class="image-right"></p>
 </section>
-<section id="section-23" class="slide level2">
+<section id="section-35" class="slide level2">
 <h2></h2>
 <h3 id="what-else">What else?</h3>
 <div class="columns">
@@ -1374,8 +1720,8 @@
 </div>
 <div class="callout-content">
 <ol type="1">
-<li>Access to efficient graph algorithms</li>
-<li>Visualisation of structured time series</li>
+<li>Access to efficient graph algorithms and ideas</li>
+<li>Exploration and description of structured time series</li>
 <li>Familiar computing grammar for coherent data</li>
 </ol>
 </div>
@@ -1391,9 +1737,8 @@
 </div>
 <div class="callout-content">
 <ol type="1">
-<li>Integrate graph reconciliation into fable</li>
-<li>Explore relationship between graph coherency and general linearly constrained time series <span class="citation" data-cites="girolimetto2023point">(<a href="#/references" role="doc-biblioref" onclick="">Girolimetto and Di Fonzo 2023</a>)</span></li>
-<li>Investigate alternative graph reconciliation methods</li>
+<li>Rework fable’s reconciliation to be built around graphs</li>
+<li>Investigate alternative graph reconciliation methods (non-linear constraints, faster at-scale reconciliation)</li>
 </ol>
 </div>
 </div>
@@ -1406,6 +1751,23 @@
 <h2>Thanks for your time!</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
+<div class="callout callout-tip callout-captioned callout-style-simple">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Final remarks</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>I’m trying to build a user-friendly design framework for forecast reconciliation - it’s hard!</li>
+<li>Great to hear the many different reconciliation techniques, and the many ideas for new methods.</li>
+<li>Searching for strange coherency constraints, let’s chat!</li>
+</ul>
+</div>
+</div>
+</div>
 <div class="callout callout-link callout-captioned callout-style-simple">
 <div class="callout-body">
 <div class="callout-caption">
@@ -1416,37 +1778,11 @@
 </div>
 <div class="callout-content">
 <p><img data-src="resources/forum.svg" class="icon"> <a href="https://social.mitchelloharawild.com/">social.mitchelloharawild.com</a></p>
-<p><img data-src="resources/projector-screen-outline.svg" class="icon"> <a href="https://slides.mitchelloharawild.com/coherent-graphs">slides.mitchelloharawild.com/coherent-graphs</a></p>
-<p><img data-src="resources/github.svg" class="icon"> <a href="https://github.com/mitchelloharawild/talk-reconciling-graphs">mitchelloharawild/talk-reconciling-graphs</a></p>
+<p><img data-src="resources/projector-screen-outline.svg" class="icon"> <a href="https://slides.mitchelloharawild.com/prato2023">slides.mitchelloharawild.com/prato2023</a></p>
+<p><img data-src="resources/github.svg" class="icon"> <a href="https://github.com/mitchelloharawild/talk-prato2023">mitchelloharawild/talk-prato2023</a></p>
 </div>
 </div>
 </div>
-<div class="callout callout-tip callout-captioned callout-style-simple">
-<div class="callout-body">
-<div class="callout-caption">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>This is a student presentation, please rate it!</strong></p>
-</div>
-<div class="callout-content">
-<!-- session feedback qr - https://whova.com/portal/session_feedback/ibcj_202306/3127551 -->
-<div class="columns">
-<div class="column" style="width:70%;">
-<p>Scan the QR (or go to the Whova app) and click on “Rate Session”</p>
-<p><img data-src="resources/rate-whova.png"></p>
-</div><div class="column" style="width:30%;">
-<p><img data-src="resources/qr-whova.svg" width="300"></p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- ::: {.callout-unsplash} -->
-<!-- ## Photo credits -->
-<!-- * Some are taken by me around Charlottesville -->
-<!-- * Most are from [Unsplash contributors](#unsplash-credits) -->
-<!-- ::: -->
 </div>
 </div>
 <p><img data-src="backgrounds/meric-dagli-7NBO76G5JsE-unsplash.jpg" class="image-right"></p>
@@ -1474,13 +1810,15 @@
 <div class="cell" data-hash="index_cache/revealjs/unsplash_0291571fab3d266b79a79cb254a4841f">
 <div class="cell-output-display">
 <ul>
+<li>Aleksandar Radovanovic: <a href="https://unsplash.com/photos/mXKXJI98aTE">Tree rings pattern</a></li>
 <li>Courtney Smith: <a href="https://unsplash.com/photos/pCLKkPHpCz0">Photo</a></li>
 <li>Eilis Garvey: <a href="https://unsplash.com/photos/MskbR8VLNrA">Exposed tree roots</a></li>
 <li>Emma Gossett: <a href="https://unsplash.com/photos/B645igbiKCw">Banyan tree in Hawai&lt;U+2019&gt;i </a></li>
 <li>Firosnv. Photography: <a href="https://unsplash.com/photos/Rr3B0LH7W3k">Top View, Shot on iPhone 7
 Location: Fort…</a></li>
 <li>Meriç Dağlı: <a href="https://unsplash.com/photos/7NBO76G5JsE">Photo</a></li>
-<li>Peter Law: <a href="https://unsplash.com/photos/2fU_lyraUOA">a wind-swept tree juts out of the rocky shore of Ge…</a></li>
+<li>五玄土 ORIENTO: <a href="https://unsplash.com/photos/-OBffuUekfQ">Photo</a></li>
+<li>Sander Weeteling: <a href="https://unsplash.com/photos/KABfjuSOx74">Photo</a></li>
 <li>Yoksel 🌿 Zok: <a href="https://unsplash.com/photos/aEMEMsBNqeo">Photo</a></li>
 <li>Zach Callahan: <a href="https://unsplash.com/photos/-i51Ke0ROTo">Photo</a></li>
 </ul>
@@ -1505,12 +1843,6 @@ Athanasopoulos, George, Rob J. Hyndman, Nikolaos Kourentzes, and Fotios Petropou
 </div>
 <div id="ref-girolimetto2023point" class="csl-entry" role="doc-biblioentry">
 Girolimetto, Daniele, and Tommaso Di Fonzo. 2023. <span>“Point and Probabilistic Forecast Reconciliation for General Linearly Constrained Multiple Time Series.”</span> <a href="https://arxiv.org/abs/2305.05330">https://arxiv.org/abs/2305.05330</a>.
-</div>
-<div id="ref-hyndman2011" class="csl-entry" role="doc-biblioentry">
-Hyndman, Rob J., Roman A. Ahmed, George Athanasopoulos, and Han Lin Shang. 2011. <span>“Optimal Combination Forecasts for Hierarchical Time Series.”</span> <em>Comput. Stat. Data Anal.</em> 55 (9): 2579–89. <a href="https://doi.org/10.1016/j.csda.2011.03.006">https://doi.org/10.1016/j.csda.2011.03.006</a>.
-</div>
-<div id="ref-Wickramasuriya2018OptimalFR" class="csl-entry" role="doc-biblioentry">
-Wickramasuriya, Shanika L., George Athanasopoulos, and Rob J Hyndman. 2018. <span>“Optimal Forecast Reconciliation for Hierarchical and Grouped Time Series Through Trace Minimization.”</span> <em>Journal of the American Statistical Association</em> 114: 804–19.
 </div>
 </div>
 </section>
