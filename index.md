@@ -833,7 +833,7 @@ Each disjoint graph can be reconciled separately.
 :::
 :::
 
-![](backgrounds/firosnv-photography-Rr3B0LH7W3k-unsplash.jpg){.image-right}
+![](backgrounds/PXL_20230908_083157452.jpg){.image-right}
 
 ## {auto-animate=true}
 
@@ -859,13 +859,14 @@ Each disjoint graph can be reconciled separately.
 :::
 
 
+*Note that this isn't a polytree, due to common/shared leafs.*
 
 :::
 
 :::
 :::
 
-![](backgrounds/firosnv-photography-Rr3B0LH7W3k-unsplash.jpg){.image-right}
+![](backgrounds/PXL_20230908_083157452.jpg){.image-right}
 
 ## {.fragment-remove}
 

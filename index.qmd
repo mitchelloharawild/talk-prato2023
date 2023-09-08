@@ -849,7 +849,7 @@ tidygraph::tbl_graph(
 :::
 :::
 
-![](backgrounds/firosnv-photography-Rr3B0LH7W3k-unsplash.jpg){.image-right}
+![](backgrounds/PXL_20230908_083157452.jpg){.image-right}
 
 ## {auto-animate=true}
 
@@ -874,13 +874,14 @@ tidygraph::tbl_graph(
   visnetwork_graph(width = 600, height = 400)
 ```
 
+*Note that this isn't a polytree, due to common/shared leafs.*
 
 :::
 
 :::
 :::
 
-![](backgrounds/firosnv-photography-Rr3B0LH7W3k-unsplash.jpg){.image-right}
+![](backgrounds/PXL_20230908_083157452.jpg){.image-right}
 
 ## {.fragment-remove}
 
