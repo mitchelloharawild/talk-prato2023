@@ -3,6 +3,8 @@ from: markdown+emoji
 execute:
   cache: true
   keep-md: true
+resources:
+  - "resources"
 format: 
   letterbox-revealjs:
     css: custom.css
@@ -67,7 +69,7 @@ Reconciliation of structured time series forecasts with graphs
 :::
 
 ::: {.dateplace}
-27th June 2023 @ IIF Reconciliation Workshop
+8th Sept 2023 @ IIF Reconciliation Workshop
 :::
 
 Mitchell O'Hara-Wild, Monash University
@@ -1262,6 +1264,7 @@ tourism_agg |>
   forecast(h = "1 year") |> 
   as_fable(key = c(Purpose, .model)) |> 
   autoplot(tourism_agg) + 
+  geom_vline(xintercept = as.Date(yearquarter(as.character(2013:2018))), linetype = "dashed", colour = "grey60") +
   theme_minimal() +
   theme(legend.position = "bottom")
 ```
@@ -1275,7 +1278,7 @@ tourism_agg |>
 ![](backgrounds/sander-weeteling-KABfjuSOx74-unsplash.jpg){.image-left}
 
 
-## {}
+## {.fragment-remove}
 
 ::: columns
 ::: {.column width="60%"}
@@ -1296,8 +1299,33 @@ DAGs are a useful tool for representing structured time series and producing coh
 ::: {.fragment .fade-in}
 
 ![](resources/set.svg){fig-align="center"}
+:::
 
 :::
+:::
+
+![](backgrounds/meric-dagli-7NBO76G5JsE-unsplash.jpg){.image-right}
+
+
+## {.fragment-remove}
+
+::: columns
+::: {.column width="60%"}
+### Recap
+
+::: {.callout-note}
+
+## Coherence and graph theory
+
+* [**Hierarchical**]{.term} coherence is a [**polytree**]{.term}.
+* [**Grouped**]{.term} coherence is a *restricted* [**DAG**]{.term}.
+* [**Graph**]{.term} coherence is an *unrestricted* [**DAG**]{.term}.
+
+DAGs are a useful tool for representing structured time series and producing coherent forecasts.
+
+:::
+
+![](resources/dani-set.png){fig-align="center"}
 
 :::
 :::
